@@ -1,0 +1,33 @@
+<h1>Listing users</h1>
+
+<% if user_signed_in? %>
+			Signed in as <%= current_user.username %>. Not you?
+			<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% end %>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Username</th>
+    
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.username %></td>
+      <td><%= link_to 'Show', user %></td>
+      <% if can? :update, @user %>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      <% end %>
+      <% if can? :destroy, @user %>
+        <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end  %>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+<% if can? :new, @user %>
+<%= link_to 'New user', new_user_path %>
+<% end %>
