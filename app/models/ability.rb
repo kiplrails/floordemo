@@ -10,9 +10,12 @@ class Ability
         can :update, :all
         can :new, :all
         can :read, [User]
+        can :manage, [Role]
       elsif user.role? :operator
         can :read, [User]
-        
+        can :manage, [Role]
+      else
+        can :manage, [Role]
       end
     end
   end
