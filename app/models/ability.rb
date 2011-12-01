@@ -8,7 +8,7 @@ class Ability
         can :manage, :all
       elsif user.role? :administrator
         can :update, :all
-        can :new, [User]
+        can :new, :all
         can :read, [User]
       elsif user.role? :operator
         can :read, [User]
