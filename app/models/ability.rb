@@ -11,9 +11,9 @@ class Ability
         can :new, :all
         can :read, [User]
         can :manage, [Role]
-      elsif user.role? :operator
+      elsif user.role? :staff
         can :read, [User]
-        can :manage, [Role]
+        
       else
         can :manage, [Role]
       end

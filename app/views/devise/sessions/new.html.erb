@@ -1,17 +1,70 @@
-<h2>Sign in</h2>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FloorSYS | Login </title>
+<%= stylesheet_link_tag(['style.css']) %>
+</head>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+<body>
+<div id="wrapper">
+<!--head bar start-->
+<div id="hd_bar">
+	<div class="hd_left">
+    	<div class="hd_right">
+        	<h1>FloorSYS</h1>
+        </div>
+    </div>
+</div>
+<!--head bar end-->
+<!--sign in area defined-->
+<div id="signIn_area">
+	<div class="sign_in_tp">
+    	<div class="sign_left">
+        	<div class="sign_right">
+            	<h1>Please Sign In</h1>
+                <h2>Secure <img src="/images/lock_ico.png" alt="" /></h2>
+            </div>
+        </div>
+    </div>
+    <%= yield %>
+	<div class="sign_left_slc">
+    	<div class="sign_right_slc">
+        	<!--login box start here-->
+            	<div class="login-box">
+            	<p class="notice"><%= notice %></p>
+              <p class="alert"><%= alert %></p>
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+                	<p align="center"><img src="/images/login_sign.png" alt="" /></p>
+                    <p class="text" align="center">Username</p>
+                    <p align="center"><%= f.text_field :username %></p>
+                    
+                    <p class="text" align="center">Password</p>
+                    <p align="center"><%= f.password_field :password %></p>
+                    <p align="center" class="sing_btn"><%= f.submit "", :class => 'signin' %></p>
+                <% end %> 
+                </div>
+            <!--login box end here-->
+        </div>
+    </div>
+    
+    <div class="sign_ftr_slc">
+    	<div class="sign_ftr_left">
+        	<div class="sign_ftr_right">
+            	<p align="center">This system is for the authorised use of staff and agents of FloorSYS only</p>
+                
+                <p align="right" class="button"><a href="#"><img src="/images/cancel.png" alt="" /></a></p>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!--sign in area defined-->
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+<p class="copyright" align="center">Copyright &copy; 2012, Floorserve Limited, All Rights Reserved.</p>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
+</div>
+</body>
+</html>
