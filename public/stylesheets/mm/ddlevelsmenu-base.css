@@ -1,0 +1,109 @@
+/* ######### Drop Down ULs CSS ######### */
+
+
+.ddsubmenustyle, .ddsubmenustyle ul{ /*topmost and sub ULs, respectively*/
+font-size:11px ;
+font-family:tahoma, Helvetica, sans-serif;
+margin: 0;
+padding:0;
+position: absolute;
+left: 0;
+top: 0;
+list-style-type: none;
+background-color: #F1F6FC;
+border: 1px solid #B7D0ED;
+visibility: hidden;
+z-index: 100;
+}
+
+.ddsubmenustyle li a{
+font-family:tahoma;
+display: block;
+width: 160px; /*width of menu (not including side paddings)*/
+color: #246BA3;
+background-color: #fff;
+font-weight:normal;
+text-decoration: none;
+border-bottom: 1px solid #C1D4EB;
+padding: 4px 10px;
+}
+
+* html .ddsubmenustyle li{ /*IE6 CSS hack*/
+font-family:tahoma, Helvetica, sans-serif;
+display: inline-block;
+width: 100% /*width of menu (include side paddings of LI A*/
+}
+
+.ddsubmenustyle li a:hover{
+font-family:verdana;
+background-color: #EDF4F9;
+color: #246BA3;
+}
+
+
+.ddsubmenustyle1, .ddsubmenustyle1 ul{ /*topmost and sub ULs, respectively*/
+font-size:11px ;
+font-family:tahoma, Helvetica, sans-serif;
+margin: 0;
+padding: 0;
+position: absolute;
+left:0;
+top: 0;
+list-style-type: none;
+background-color: #E6E6E6;
+border: 0px solid #C1D4EB;
+border-left: 1px solid #3A3F44;
+border-right: 1px solid #3A3F44;
+border-bottom: 1px solid #3A3F44;
+visibility: hidden;
+z-index: 100;
+}
+
+.ddsubmenustyle1 li a{
+font-family:tahoma;
+display: block;
+width:115px; /*width of menu (not including side paddings)*/
+color: #fff;
+background-color: #50575D;
+font-weight:normal;
+text-decoration: none;
+border-top: 1px solid #3A3F44;
+padding: 7px 10px;
+
+}
+
+* html .ddsubmenustyle1 li{ /*IE6 CSS hack*/
+font-family:tahoma, Helvetica, sans-serif;
+display: inline-block;
+width: 130px; /*width of menu (include side paddings of LI A*/
+}
+
+.ddsubmenustyle1 li a:hover{
+font-family:tahoma;
+background-color: #5F6A72;
+color: #fff;
+}
+/* ######### Neutral CSS  ######### */
+
+.downarrowpointer{ /*CSS for "down" arrow image added to top menu items*/
+font-family:verdana, Helvetica, sans-serif;
+padding-left: 4px;
+border: 0;
+}
+
+.rightarrowpointer{ /*CSS for "right" arrow image added to drop down menu items*/
+position: absolute;
+padding-top: 3px;
+left: 100px;
+border: 0;
+}
+
+.ddiframeshim{
+position: absolute;
+z-index: 500;
+background: transparent;
+border-width: 0;
+width: 0;
+height: 0;
+display: block;
+}
