@@ -6,6 +6,7 @@ class Ability
 
       if user.role? :super
         can :manage, :all
+        can :new, [User]
       elsif user.role? :admin
         can :update, :all
         can :new, :all
