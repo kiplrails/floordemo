@@ -22,6 +22,7 @@ ddlevelsmenu.setup("navlist", "topbar") //ddlevelsmenu.setup("mainmenuid", "topb
             	<ul id="navlist">
                 <img src="/images/bar.png" alt="" /><li><a href="#" rel="ddsubmenu1">Customers</a></li><img src="/images/bar.png" alt="" /><li><a href="#" rel="ddsubmenu2">Suppliers</a></li><img src="/images/bar.png" alt="" /><li><a href="#" rel="ddsubmenu3">Fitters</a></li> <img src="/images/bar.png" alt="" /><li><a href="#" rel="ddsubmenu4"> Products</a></li><img src="/images/bar.png" alt="" /><% if can? :new, @user%><li><a href="#" rel="ddsubmenu5"> New User</a></li><img src="/images/bar.png" alt="" /><% end %> 
             </ul>
+            <p class="notice"><%= notice %></p>
             <ul id="ddsubmenu1" class="ddsubmenustyle1">
             <% if can? :new, @user%>
                 <li><a href="new-customer.html">New Customer </a></li>
