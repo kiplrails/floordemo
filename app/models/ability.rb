@@ -4,9 +4,9 @@ class Ability
   def initialize(user)
       user ||= User.new # guest user
 
-      if user.role? :super
+      if user.role? :superadmin
         can :manage, :all
-      elsif user.role? :admin
+      elsif user.role? :administrator
         can :update, :all
         can :new, :all
         can :read, [User]
