@@ -7,9 +7,5 @@ class Ability
       if user.role? :superadmin
         can :manage, :all
       
-      
-      else
-        can :read, :all
-      end
     end
   end
