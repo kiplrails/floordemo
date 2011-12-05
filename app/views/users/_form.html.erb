@@ -37,7 +37,7 @@
   	<% if can? :new, @user %>
       <% for role in Role.find(:all) %>
        <div>
-          <% if current_user.role_id == '1' %>
+          <% if current_user.role_id == 1 %>
         <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
         <%= role.name %> 
         <% elsif %>
