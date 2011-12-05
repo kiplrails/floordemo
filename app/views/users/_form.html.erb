@@ -34,7 +34,7 @@
       <%= f.password_field :password_confirmation %>
     </div>
   <% end %>
-  	
+  	<% if can? :new, @user %>
       <% for role in Role.find(:all) %>
        <div>
           <% if current_user.role_id == 1 %>
@@ -48,7 +48,7 @@
         <% end %>
        </div>
 
-     
+     <% end %>
   <% end %>
     
   <div class="actions">
