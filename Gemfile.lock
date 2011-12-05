@@ -70,7 +70,7 @@ GEM
     rake (0.9.2.2)
     rdoc (3.11)
       json (~> 1.4)
-    ruby-mysql (2.9.4)
+    ruby-mysql (2.9.3)
     thor (0.14.6)
     treetop (1.4.10)
       polyglot
@@ -86,4 +86,4 @@ DEPENDENCIES
   cancan
   devise
   rails (= 3.0.9)
-  ruby-mysql
+  ruby-mysql (= 2.9.3)
