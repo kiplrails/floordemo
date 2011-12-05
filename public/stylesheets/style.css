@@ -132,7 +132,7 @@ a:hover {
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 	font-size:13px;
 }
-#signIn_area .sign_right_slc .login-box input[type="text"], input[type="password"]  {
+#signIn_area .sign_right_slc .login-box input[type="text"], input[type="password"],input[type="email"]  {
 	width:100%;
 	border: solid 1px #ccc;
 	padding:3px;

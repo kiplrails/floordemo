@@ -1,57 +1,93 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+<div id="wrapper">
+<!--head bar start-->
+<div id="hd_bar">
+	<div class="hd_left">
+    	<div class="hd_right">
+        	<h1>FloorSYS</h1>
+        </div>
     </div>
-  <% end %>
-  
-  <% if user_signed_in? %>
-  			Signed in as <%= current_user.username %>. Not you?
-  			<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-  <% end %>
-  							  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
-  <% if @current_method == "new" %>
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password %>
+</div>
+<!--head bar end-->
+<!--sign in area defined-->
+<div id="signIn_area">
+	<div class="sign_in_tp">
+    	<div class="sign_left">
+        	<div class="sign_right">
+            	<h1>Create New User</h1>
+                <h2>Secure <img src="/images/lock_ico.png" alt="" /></h2>
+            </div>
+        </div>
     </div>
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %>
-    </div>
-  <% end %>
-  	<% if can? :new, @user %>
-      <% for role in Role.find(:all) %>
-       <div>
-          <% if current_user.role_id == 1 %>
-        <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
-        <%= role.name %> 
-        <% elsif %>
-        <% if role.name == "admin" %>
-        <%= check_box_tag "user[role_ids][]", 3, @user.roles.include?(role) %>
-        <%= "Staff" %>
-        <% end  %>
-        <% end %>
-       </div>
+    <%= yield %>
+	<div class="sign_left_slc">
+    	<div class="sign_right_slc">
+        	<!--login box start here-->
+            	<div class="login-box">
+            	<p class="notice"><%= notice %></p>
+              <p class="alert"><%= alert %></p>
+              <% if user_signed_in? %>
+              							    Signed in as <%= current_user.username %>. Not you?
+              							    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 
-     <% end %>
-  <% end %>
+
+              							  <% end %></br>
+                  <%= form_for(@user) do |f| %>
+                	<p align="center"><img src="/images/login_sign.png" alt="" /></p>
+                    <p class="text" align="center">Username</p>
+                    <p align="center"><%= f.text_field :username %></p>
+                    
+                     <p class="text" align="center">Email</p>
+                      <p align="center"><%= f.email_field :email %></p>
+                    <% if @current_method == "new" %>
+                    <p class="text" align="center">Password</p>
+                    <p align="center"><%= f.password_field :password %></p>
+                    
+                    <p class="text" align="center">Confirm Password</p>
+                    <p align="center"><%= f.password_field :password_confirmation %></p>
+                    <% end %>
+                    
+                    <% if can? :new, @user %>
+                        <% for role in Role.find(:all) %>
+                         <div>
+                        <% if current_user.role_id == 1 %>
+                          <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+                          <%= role.name %> 
+                          <% elsif %>
+                        <% if role.name == "admin" %>
+                          <%= check_box_tag "user[role_ids][]", 3, @user.roles.include?(role) %>
+                          <%= "Staff" %>
+                        <% end  %>
+                        <% end %>
+                         </div>
+                         
+                    
+                <% end %> 
+                
+                <p align="center" class="sing_btn"><%= f.submit "Create User"%></p>
+                <% end %>
+                <% end %>
+                </div>
+            <!--login box end here-->
+        </div>
+    </div>
     
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+    <div class="sign_ftr_slc">
+    	<div class="sign_ftr_left">
+        	<div class="sign_ftr_right">
+            	<p align="center">This system is for the authorised use of staff and agents of FloorSYS only</p>
+                
+                <p align="right" class="button"><a href="/users"><img src="/images/cancel.png" alt="" /></a></p>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!--sign in area defined-->
+
+<p class="copyright" align="center">Copyright &copy; 2012, Floorserve Limited, All Rights Reserved.</p>
+
+
+</div>
+
