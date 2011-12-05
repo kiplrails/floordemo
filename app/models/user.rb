@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
     # Setup accessible (or protected) attributes for your model
     attr_accessible :email, :username, :password, :password_confirmation, :remember_me, :role_ids
 
-    def role?(role)
-      return !!self.roles.find_by_name(role.to_s.camelize)
+    ROLES = %w[super admin staff]
+    def role?(base_role)
+      ROLES.index(base_role.to_s) <= ROLES.index(role)
     end
 end
