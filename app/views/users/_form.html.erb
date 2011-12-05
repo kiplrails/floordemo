@@ -41,7 +41,7 @@
         <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
         <%= role.name %> 
         <% elsif %>
-        <% if role.name == "administrator" %>
+        <% if role.name == "admin" %>
         <%= check_box_tag "user[role_ids][]", 3, @user.roles.include?(role) %>
         <%= "Staff" %>
         <% end  %>
