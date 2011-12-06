@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FloorSYS | Dashboard </title>
+<%= stylesheet_link_tag (['mm/style.css','mm/ddlevelsmenu-base.css','mm/ddlevelsmenu-topbar.css','mm/ddlevelsmenu-sidebar.css'])%>
+<%= javascript_include_tag 'ddlevelsmenu.js'%>
+
+<script type="text/javascript">
+ddlevelsmenu.setup("navlist", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
+</script>
+
+<script type="text/javascript">
+ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
+</script>
+</head>
+
+<body>
+<div id="wrapper">
+<!--head bar start-->
+<div id="hd_bar">
+	<div class="hd_left">
+    	<div class="hd_right">
+        	<h1>FloorSYS</h1>
+            <div class="menuBar">
+            	<ul id="navlist">
+                <li><a href="#" rel="ddsubmenu1">Customers</a></li>
+                <li><a href="#" rel="ddsubmenu2">Suppliers</a></li>
+                <li><a href="#" rel="ddsubmenu3">Fitters</a></li> 
+                <li><a href="#" rel="ddsubmenu4"> Products</a></li>
+                <% if can? :new, @user%>
+                  <li><a href="#" rel="ddsubmenu5"> New User</a></li>
+                  <% end %> 
+            </ul>
+            <p class="notice"><%= notice %></p>
+            <ul id="ddsubmenu1" class="ddsubmenustyle1">
+            <% if can? :new, @user%>
+                <li><a href="new-customer.html">New Customer </a></li>
+                <li><a href="#">Edit Customer </a></li>
+            <% end %>
+                <li><a href="#">New Quotation</a></li>
+                <li><a href="#">New Sales Order</a></li> 
+                <li><a href="#">New Invoice</a></li>
+                <li><a href="#">New Credit </a></li> 
+                <li><a href="#">New Complaint</a></li>  
+                <li><a href="#">Cash Register</a></li>   
+                <li><a href="#">Customer List</a></li>  
+                <li><a href="#">Quotation List</a></li>
+                <li><a href="#">Sales Order List </a></li> 
+                <li><a href="#">Invoice List</a></li>  
+                <li><a href="#">Complaint List </a></li>                      
+            </ul>
+            <ul id="ddsubmenu2" class="ddsubmenustyle1">
+                <li><a href="#">New Supplier</a></li>
+                <li><a href="#">Edit Supplier</a></li>
+                <li><a href="#">New Purchase Order</a></li>
+                <li><a href="#">Supplier List</a></li> 
+                <li><a href="#">Purchase Order List </a></li>
+                <li><a href="#">Cash Register</a></li>                 
+            </ul>
+             <ul id="ddsubmenu3" class="ddsubmenustyle1">
+                <li><a href="#">New Fitter</a></li>
+                <li><a href="#">Edit Fitters</a></li>
+                <li><a href="#">New Fitter Invoice</a></li>
+                <li><a href="#">Fitters List </a></li>           
+            </ul>
+            <ul id="ddsubmenu4" class="ddsubmenustyle1">
+                <li><a href="#">New Product</a></li>
+                <li><a href="#">Edit Product</a></li>
+                <li><a href="#">New Category</a></li>
+                <li><a href="#">Edit Categories</a></li>  
+                <li><a href="#">List Categories</a></li> 
+                <li><a href="#">List Products</a></li> 
+                <li><a href="#">List Prices </a></li> 
+                          
+            </ul>
+            <% if can? :new, @user%>
+            <ul id="ddsubmenu5" class="ddsubmenustyle1">
+                <li><a href="/users/new">Create User</a></li>
+
+                          
+            </ul>
+            <% end %>
+            </div>
+            
+            <div class="search_area">
+            	<div class="inner"><input type="text" class="search_bk" />  <input type="image" src="images/search_ic.gif" height="14"  width="15" class="ico" />  </div>
+            </div>
+            <div class="bar1"><img src="images/bar.png" alt="" /></div>
+            <div class = "signout">
+            <%= link_to image_tag("/images/sign_out.png", :border => 0), destroy_user_session_path, :method => :delete %> 
+                   
+            </div>
+            <div class="bar2"><img src="images/bar.png" alt="" /></div>
+            <div class="setting">
+      			<div class="menuBar" style="position:relative; ">
+                  <ul id="navlist1">
+      				<li><a href="#" rel="ddsubmenu5" style="background:none; padding:18px 0 3px 0;"><img src="images/setting.png" alt="" height="22" />&nbsp;</a>
+      				<ul id="ddsubmenu5" class="ddsubmenustyle1" style="margin-left:-97px; overflow:hidden">
+      					 <% if can? :new, @user%>
+      					<li><a href="/users/new">Create Staff</a></li>
+                 <li><a href="#">Create Login</a></li>
+                 <% end %>
+      				</ul>
+      				</li>
+      			</ul>
+                  </div>
+      			</div>
+            
+      </div>
+    </div>
+</div>
+<!--head bar end-->
+<!--sign in area defined-->
+<div id="signIn_area">
+	<div class="sign_in_tp">
+    	<div class="sign_left">
+        	<div class="sign_right">
+            	<div class="message_col1">
+                	<p>Message Board</p>
+                </div>
+                <div class="cal_col">
+                	<p>Calendar</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+	<div class="sign_left_slc">
+    	<div class="sign_right_slc">
+        	
+            <div class="message_col3" style="clear:both;">
+                	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+
+In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. 
+
+Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p>
+                </div>
+              
+              <div class="cale_1"> 
+               	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+
+Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. 
+
+Nullam dictum felis eu pede mollis pretium. 
+
+Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p>
+              </div>  
+               
+                
+         <div class="clear"></div>       
+        </div>
+    </div>
+    
+    <div class="sign_ftr_slc">
+    	<div class="sign_ftr_left">
+        	<div class="sign_ftr_right">
+            
+            	<p align="center">Copyright © 2012, Floorserve Limited, All Rights Reserved.</p>
+              
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!--sign in area defined-->
+
+
+</div>
+</body>
+</html>

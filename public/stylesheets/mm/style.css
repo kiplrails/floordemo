@@ -33,7 +33,7 @@ a:hover {
 }
 
 #wrapper {
-	width:75%;
+	width:1000px;
 	margin:auto;
 	position:relative;
 }
@@ -48,7 +48,8 @@ a:hover {
 }
 #hd_bar .hd_left .hd_right {
 	background:url(/images/hd_right.png) no-repeat right;
-	height:40px;	
+	height:40px;
+	position:relative;
 }
 #hd_bar .hd_left .hd_right h1 {
 	margin:0;
@@ -77,19 +78,33 @@ a:hover {
 #hd_bar .hd_left .hd_right .menuBar ul li {
 	display:inline;
 	vertical-align:top;
-	line-height:30px;
-	clear:both;
 	color:#fff;
 	font-size:14px;
+	margin:0;
 	
+
+}
+
+#hd_bar .hd_left .hd_right .menuBar ul img {
+	vertical-align:top
 }
 
 #hd_bar .hd_left .hd_right .menuBar ul li a {
 	font-family:Arial, Helvetica, sans-serif;
-	padding:0 20px 10px 20px;
+	padding:9px 10px 10px 25px;
 	color:#fff;
-	text-decoration:none
+	text-decoration:none;
+	line-height:35px;
+	background:url(/images/bar.png) no-repeat ;
 }
+
+
+#hd_bar .hd_left .hd_right .menuBar ul li a.rightBar {
+
+	background:url(/images/bar.png) no-repeat right ;
+}
+
+
 
 #hd_bar .hd_left .hd_right .menuBar ul li a:hover {
 	color:#000000
@@ -103,7 +118,7 @@ a:hover {
 .search_area {
 	position:absolute;
 	top:7px;
-	right:150px;
+	right:110px;
 	width:300px;
 }
 
@@ -116,8 +131,8 @@ a:hover {
 	width:176px;
 	border:0;
 	position:relative;
-	padding:0 0 0 30px;
-	color:#FFFFFF;
+	padding:0 0 0 28px;
+	color:#fff;
 }
 
 
@@ -142,11 +157,16 @@ a:hover {
 .setting {
 	position:absolute;
 	top:7px;
-	right:30px;
+	right:185px;
 }
 
 
 
+.signout {
+	position:absolute;
+	top:5px;
+	right:96px;
+}
 
 
 
@@ -159,7 +179,8 @@ a:hover {
 #signIn_area .sign_in_tp .sign_left .sign_right {
 	background:url(/images/sign_in_tp_right.png) no-repeat right top;
 	height:46px;
-	position:relative
+	position:relative;
+
 }
 #signIn_area .sign_in_tp .sign_left .sign_right h1 {
 	margin:0;
@@ -172,14 +193,19 @@ a:hover {
 
 
 #signIn_area .sign_in_tp .sign_left .sign_right .message_col1 {
-	width:400px;
+	width:450px;
 	float:left;
 	font-size:13px;
+	border-right: solid 1px #ccc;
+	margin:4px 0 0 0
+	
+	
 }
 
 
 #signIn_area .sign_in_tp .sign_left .sign_right .message_col1 p {
-	padding:4px 0 0 30px;
+	padding:12px 0 13px 30px;
+	margin:0
 }
 
 
@@ -251,7 +277,7 @@ a:hover {
 
 
 #signIn_area .sign_right_slc .message_col3 {
-	width:400px;
+	width:350px;
 	float:left;
 	margin:30px 0 40px 30px;
 	font-size:13px;
@@ -267,7 +293,7 @@ a:hover {
 
 
 #signIn_area .sign_right_slc .cale_1 {
-	width:600px;
+	width:550px;
 	float:right;
 	margin:30px 0 40px 30px;
 	font-size:13px;
@@ -278,7 +304,7 @@ a:hover {
 
 #signIn_area .sign_right_slc .cale_1 p {
 	margin:0;
-	padding:0 0 0 50px;
+	padding:0 20px 0 50px;
 	color:#282828
 }
 
@@ -321,6 +347,13 @@ p.copyright {
 	color:#282828;
 }
 
+
+
+
+
+
+
+
 .button1 {
 	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -353,6 +386,17 @@ p.copyright {
 	top:1px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
 .button2 {
 	-moz-box-shadow:inset 0px 0px 0px 0px #ffffff;
 	-webkit-box-shadow:inset 0px 0px 0px 0px #ffffff;
@@ -383,18 +427,4 @@ p.copyright {
 }.button2:active {
 	position:relative;
 	top:1px;
-}
-
-.signout
-{
- background: url(/images/sign_out.png) no-repeat;
-	border:none;
-	height:30px;	
-	width:119px;
-	margin-top:1px;
-	margin-left:15px;
-	margin-right: -39px;
-	position:absolute;
-	top:5px;
-	right:100px;
 }

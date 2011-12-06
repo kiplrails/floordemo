@@ -4,9 +4,9 @@ Floor::Application.routes.draw do
   devise_for :users
   resources :users
   root :to => "home#index"
-  match 'users' => 'users#index', :as => 'user_root'
-  
-  
+  match 'dashboard' => 'users#dashboard', :as => 'user_root'
+  # match '/staff' => 'users#staff', :as => :user
+  # match 'users/edit' => 'users#edit'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -3,7 +3,7 @@
 .markermenu{
 width: 175px; /*width of side bar menu*/
 clear: left;
-position: relative; /*Preserve this for "right" arrow images (added by script) to be positioned correctly*/
+position: relative; /*Preserve this for "right" arrow //images (added by script) to be positioned correctly*/
 
 }
 

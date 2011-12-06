@@ -55,6 +55,7 @@ border: 0px solid #C1D4EB;
 border-left: 1px solid #3A3F44;
 border-right: 1px solid #3A3F44;
 border-bottom: 1px solid #3A3F44;
+
 visibility: hidden;
 z-index: 100;
 }
@@ -62,6 +63,8 @@ z-index: 100;
 .ddsubmenustyle1 li a{
 font-family:tahoma;
 display: block;
+
+
 width:115px; /*width of menu (not including side paddings)*/
 color: #fff;
 background-color: #50575D;

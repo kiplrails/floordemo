@@ -49,6 +49,7 @@ a:hover {
 #hd_bar .hd_left .hd_right {
 	background:url(/images/hd_right.png) no-repeat right;
 	height:40px;	
+	position: relative;
 }
 #hd_bar .hd_left .hd_right h1 {
 	margin:0;
@@ -258,4 +259,8 @@ p.copyright {
 	bottom:20px;
 	right:20px;
 }
-
+.signout {
+    position: absolute;
+    right: 96px;
+    top: 5px;
+}

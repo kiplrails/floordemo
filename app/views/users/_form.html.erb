@@ -27,12 +27,11 @@
             	<p class="notice"><%= notice %></p>
               <p class="alert"><%= alert %></p>
               <% if user_signed_in? %>
-              							    Signed in as <%= current_user.username %>. Not you?
-              							    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-
-
-              							  <% end %></br>
+              				Signed in as <%= current_user.username %>. Not you?
+                  		<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>  
+              <% end %></br>
                   <%= form_for(@user) do |f| %>
+                  
                 	<p align="center"><img src="/images/login_sign.png" alt="" /></p>
                     <p class="text" align="center">Username</p>
                     <p align="center"><%= f.text_field :username %></p>
@@ -40,11 +39,11 @@
                      <p class="text" align="center">Email</p>
                       <p align="center"><%= f.email_field :email %></p>
                     <% if @current_method == "new" %>
-                    <p class="text" align="center">Password</p>
-                    <p align="center"><%= f.password_field :password %></p>
+                        <p class="text" align="center">Password</p>
+                        <p align="center"><%= f.password_field :password %></p>
                     
-                    <p class="text" align="center">Confirm Password</p>
-                    <p align="center"><%= f.password_field :password_confirmation %></p>
+                        <p class="text" align="center">Confirm Password</p>
+                        <p align="center"><%= f.password_field :password_confirmation %></p>
                     <% end %>
                     
                     <% if can? :new, @user %>
@@ -55,6 +54,7 @@
                           <%= role.name %> 
                           <% elsif %>
                         <% if role.name == "admin" %>
+                          <%= f.hidden_field :s_id, :value => current_user.id %>
                           <%= check_box_tag "user[role_ids][]", 3, @user.roles.include?(role) %>
                           <%= "Staff" %>
                         <% end  %>

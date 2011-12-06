@@ -1,18 +1,27 @@
 class UsersController < ApplicationController
- #before_filter :authenticate_user!
+ before_filter :authenticate_user!
   
  load_and_authorize_resource
   # GET /users
   # GET /users.xml
   def index
-    @users = User.all
-
+    @a = current_user.id
+    @b = User.where(:s_id => @a)
+    # @users = User.find(params[:id])
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
     end
   end
-
+  
+  def dashboard
+     @users = User.all
+  end
+  
+  
+  
+  
   # GET /users/1
   # GET /users/1.xml
   def show
@@ -39,6 +48,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    
   end
 
   # POST /users
@@ -48,7 +58,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to('/users', :notice => 'User was successfully created.') }
+        format.html { redirect_to(user_path, :notice => 'User was successfully created.') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
@@ -61,7 +71,7 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
-
+   
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to(@user, :notice => 'User was successfully updated.') }

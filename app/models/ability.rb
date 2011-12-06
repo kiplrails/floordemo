@@ -12,8 +12,11 @@ class Ability
         can :new, :all
         can :read, [User]
         can :manage, [User]
+        
       elsif user.role? :staff
         can :read, [User]
+        can :manage, [User]
+        
         
       else
         can :manage, [Role]
