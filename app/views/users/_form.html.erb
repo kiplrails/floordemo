@@ -54,7 +54,7 @@
                           <%= role.name %> 
                           <% elsif %>
                         <% if role.name == "admin" %>
-                          <%= f.text_field :s_id, :value => current_user.id %>
+                          <%= f.hidden_field :s_id, :value => current_user.id %>
                           <%= check_box_tag "user[role_ids][]", 3, @user.roles.include?(role) %>
                           <%= "Staff" %>
                         <% end  %>

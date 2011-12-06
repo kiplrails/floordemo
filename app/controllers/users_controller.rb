@@ -58,7 +58,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(user_path, :notice => 'User was successfully created.') }
+        format.html { redirect_to('/users') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
