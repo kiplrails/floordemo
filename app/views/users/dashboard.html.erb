@@ -16,7 +16,9 @@ ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "top
 </head>
 
 <body>
+ 
 <div id="wrapper">
+<p  align="right"><%= notice %></p>
 <!--head bar start-->
 <div id="hd_bar">
 	<div class="hd_left">
@@ -32,7 +34,7 @@ ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "top
                   <li><a href="#" rel="ddsubmenu5"> New User</a></li>
                   <% end %> 
             </ul>
-            <p class="notice"><%= notice %></p>
+           
             <ul id="ddsubmenu1" class="ddsubmenustyle1">
             <% if can? :new, @user%>
                 <li><a href="new-customer.html">New Customer </a></li>
@@ -157,7 +159,6 @@ Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p>
     	<div class="sign_ftr_left">
         	<div class="sign_ftr_right">
             
-            	<p align="center">Copyright © 2012, Floorserve Limited, All Rights Reserved.</p>
               
                 
             </div>
@@ -167,6 +168,7 @@ Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p>
 <!--sign in area defined-->
 
 
+<p class="copyright" align="center">Copyright &copy; 2012, Floorserve Limited, All Rights Reserved.</p>
 </div>
 </body>
 </html>
