@@ -36,6 +36,7 @@ a:hover {
 	width:75%;
 	margin:auto;
 	position:relative;
+	min-height:500px;
 }
 
 #hd_bar {
