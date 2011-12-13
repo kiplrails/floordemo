@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>FloorSYS | Dashboard </title>
-<%= stylesheet_link_tag (['mm/style.css','mm/ddlevelsmenu-base.css','mm/ddlevelsmenu-topbar.css','mm/ddlevelsmenu-sidebar.css'])%>
-<%= javascript_include_tag 'ddlevelsmenu.js'%>
+<%= stylesheet_link_tag (['style.css','mm/ddlevelsmenu-base.css','mm/ddlevelsmenu-topbar.css','mm/ddlevelsmenu-sidebar.css','mm/SpryTabbedPanels.css'])%>
+<%= javascript_include_tag 'ddlevelsmenu.js','SpryTabbedPanels.js','prototype.js', 'rails.js' %>
 
 <script type="text/javascript">
 ddlevelsmenu.setup("navlist", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
@@ -76,8 +76,7 @@ ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "top
             </div>
             <div class="bar1"><img src="/images/bar.png" alt="" /></div>
             <div class = "signout">
-            <%= link_to image_tag("/images/sign_out.png", :border => 0), destroy_user_session_path %> 
-                   
+              <%= link_to image_tag("/images/sign_out.png", :border => 0), destroy_user_session_path %> 
             </div>
             <div class="bar2"><img src="/images/bar.png" alt="" /></div>
             <div class="setting">
@@ -85,8 +84,10 @@ ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "top
             <ul id="navlist1">
 				<li><a href="#" rel="ddsubmenu5" style="background:none; padding:18px 0 3px 0;"><img src="/images/setting.png" alt="" height="22" />&nbsp;</a>
 				<ul id="ddsubmenu5" class="ddsubmenustyle1" style="margin-left:-97px; overflow:hidden">
-					 <li><a href="#">Create Company</a></li>
-                	<li><a href="#">Sublink1</a></li>
+					 <% if can? :new, @user%>
+					 <li><a href="/companies/new">Create Company</a></li>
+                	<li><a href="/users/new">Create Staff</a></li>
+            <% end %>
 				</ul>
 				</li>
 			</ul>
@@ -97,70 +98,10 @@ ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "top
     </div>
 </div>
 <!--head bar end-->
-<!--sign in area defined-->
-<div id="signIn_area">
-	<div class="sign_in_tp">
-    	<div class="sign_left">
-        	<div class="sign_right">
-             	<h1>Listing of User</h1>
-          </div>
-        </div>
-    </div>
-    
-	<div class="sign_left_slc">
-    
-    	<div class="sign_right_slc">
-        <div class="userListing">
-        	<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <th align="left">S.N.</th>
-    <th align="left">Username</th>
-    <th align="left">Email</th>
-    <th align="left" class="border-right">Action</th>
-    </tr>
-  <% @b.each do |user| %>
-    <tr>
-      <td class="border-bottom"><%= user.id %></td>
-      <td class="border-bottom"><%= user.username %></td>
-      <td class="border-bottom"><%= user.email %></td>
-      
-      
-      
-        <td class="border-bottom-right"><%= link_to 'view', user %> | <%= link_to 'Edit', edit_user_path(user) %> | <%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
-          </tr>
-  <% end %>
-</table>
 
-        </div>
-        
-        
-          
-          
-         <div class="clear"></div>       
-      </div>
-    </div>
-    
-    <div class="sign_ftr_slc">
-    	<div class="sign_ftr_left">
-        	<div class="sign_ftr_right">
-            
-            	
-              
-                
-            </div>
-        </div>
-    </div>
+<%= yield %>
 </div>
-<!--sign in area defined-->
+<p class="copyright" align="center">Copyright &copy; 2012, Floorserve Limited, All Rights Reserved.</p>
 
-
-</div>
-
-   <p class="copyright" align="center">Copyright &copy; 2012, Floorserve Limited, All Rights Reserved.</p>
-<script type="text/javascript">
-<!--
-var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
-//-->
-</script>
 </body>
 </html>

@@ -1,11 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FloorSYS | Dashboard </title>
+<%= stylesheet_link_tag (['mm/style.css','mm/ddlevelsmenu-base.css','mm/ddlevelsmenu-topbar.css','mm/ddlevelsmenu-sidebar.css'])%>
+<%= javascript_include_tag 'ddlevelsmenu.js'%>
 
+<script type="text/javascript">
+ddlevelsmenu.setup("navlist", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
+</script>
+
+<script type="text/javascript">
+ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
+</script>
+</head>
+
+<body>
 <div id="wrapper">
 <!--head bar start-->
 <div id="hd_bar">
 	<div class="hd_left">
     	<div class="hd_right">
         	<h1>FloorSYS</h1>
-        </div>
+            <div class="menuBar">
+            	<ul id="navlist" >
+                <li><a href="#" rel="ddsubmenu1" >Customers</a></li>
+                <li><a href="#" rel="ddsubmenu2">Suppliers</a></li>
+                <li><a href="#" rel="ddsubmenu3">Fitters</a></li>
+                <li><a href="#" rel="ddsubmenu4"> Products</a></li>
+                <li><a href="#"> &nbsp;</a></li>   
+            </ul>
+            <ul id="ddsubmenu1" class="ddsubmenustyle1">
+                <li><a href="/customers/new">New Customer </a></li>
+                <li><a href="/customers">Edit Customer </a></li>
+                <li><a href="#">New Quotation</a></li>
+                <li><a href="#">New Sales Order</a></li> 
+                <li><a href="#">New Invoice</a></li>
+                <li><a href="#">New Credit </a></li> 
+                <li><a href="#">New Complaint</a></li>  
+                <li><a href="#">Cash Register</a></li>   
+                <li><a href="#">Customer List</a></li>  
+                <li><a href="#">Quotation List</a></li>
+                <li><a href="#">Sales Order List </a></li> 
+                <li><a href="#">Invoice List</a></li>  
+                <li><a href="#">Complaint List </a></li>                      
+            </ul>
+            <ul id="ddsubmenu2" class="ddsubmenustyle1">
+                <li><a href="#">New Supplier</a></li>
+                <li><a href="#">Edit Supplier</a></li>
+                <li><a href="#">New Purchase Order</a></li>
+                <li><a href="#">Supplier List</a></li> 
+                <li><a href="#">Purchase Order List </a></li>
+                <li><a href="#">Cash Register</a></li>                 
+            </ul>
+             <ul id="ddsubmenu3" class="ddsubmenustyle1">
+                <li><a href="#">New Fitter</a></li>
+                <li><a href="#">Edit Fitters</a></li>
+                <li><a href="#">New Fitter Invoice</a></li>
+                <li><a href="#">Fitters List </a></li>           
+            </ul>
+            <ul id="ddsubmenu4" class="ddsubmenustyle1">
+                <li><a href="#">New Product</a></li>
+                <li><a href="#">Edit Product</a></li>
+                <li><a href="#">New Category</a></li>
+                <li><a href="#">Edit Categories</a></li>  
+                <li><a href="#">List Categories</a></li> 
+                <li><a href="#">List Products</a></li> 
+                <li><a href="#">List Prices </a></li> 
+                          
+            </ul>
+            </div>
+            
+            <div class="search_area">
+            	<div class="inner"><input type="text" class="search_bk" />  <input type="image" src="/images/search_ic.gif" height="14"  width="15" class="ico" />  </div>
+            </div>
+            <div class="bar1"><img src="/images/bar.png" alt="" /></div>
+            <div class = "signout">
+            <%= link_to image_tag("/images/sign_out.png", :border => 0), destroy_user_session_path %> 
+                   
+            </div>
+            <div class="bar2"><img src="/images/bar.png" alt="" /></div>
+            <div class="setting">
+				<div class="menuBar" style="position:relative; ">
+            <ul id="navlist1">
+				<li><a href="#" rel="ddsubmenu5" style="background:none; padding:18px 0 3px 0;"><img src="/images/setting.png" alt="" height="22" />&nbsp;</a>
+				<ul id="ddsubmenu5" class="ddsubmenustyle1" style="margin-left:-97px; overflow:hidden">
+					 <li><a href="/companies/new">Create Company</a></li>
+                	<li><a href="#">Sublink1</a></li>
+				</ul>
+				</li>
+			</ul>
+            </div>
+			</div>
+            
+      </div>
     </div>
 </div>
 <!--head bar end-->
@@ -14,80 +102,106 @@
 	<div class="sign_in_tp">
     	<div class="sign_left">
         	<div class="sign_right">
-            	<h1>Create New User</h1>
-                <h2>Secure <img src="/images/lock_ico.png" alt="" /></h2>
-            </div>
+             	<h1>Sign Up</h1>
+          </div>
         </div>
     </div>
-    <%= yield %>
-	<div class="sign_left_slc">
-    	<div class="sign_right_slc">
-        	<!--login box start here-->
-            	<div class="login-box">
-            	<p class="notice"><%= notice %></p>
-              <p class="alert"><%= alert %></p>
-              <% if user_signed_in? %>
-              				Signed in as <%= current_user.username %>. Not you?
-                  		<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>  
-              <% end %></br>
-                  <%= form_for(@user) do |f| %>
-                  
-                	<p align="center"><img src="/images/login_sign.png" alt="" /></p>
-                    <p class="text" align="center">Username</p>
-                    <p align="center"><%= f.text_field :username %></p>
-                    
-                     <p class="text" align="center">Email</p>
-                      <p align="center"><%= f.email_field :email %></p>
-                    <% if @current_method == "new" %>
-                        <p class="text" align="center">Password</p>
-                        <p align="center"><%= f.password_field :password %></p>
-                    
-                        <p class="text" align="center">Confirm Password</p>
-                        <p align="center"><%= f.password_field :password_confirmation %></p>
-                    <% end %>
-                    
-                    <% if can? :new, @user %>
-                        <% for role in Role.find(:all) %>
-                         <div>
-                        <% if current_user.role_id == 1 %>
-                          <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
-                          <%= role.name %> 
-                          <% elsif %>
-                        <% if role.name == "admin" %>
-                          <%= f.hidden_field :s_id, :value => current_user.id %>
-                          <%= check_box_tag "user[role_ids][]", 3, @user.roles.include?(role) %>
-                          <%= "Staff" %>
-                        <% end  %>
-                        <% end %>
-                         </div>
-                         
-                    
-                <% end %> 
-                
-                <p align="center" class="sing_btn"><%= f.submit "Create User"%></p>
-                <% end %>
-                <% end %>
-                </div>
-            <!--login box end here-->
-        </div>
-    </div>
+    <div class="sign_left_slc">
     
-    <div class="sign_ftr_slc">
-    	<div class="sign_ftr_left">
-        	<div class="sign_ftr_right">
-            	<p align="center">This system is for the authorised use of staff and agents of FloorSYS only</p>
-                
-                <p align="right" class="button"><a href="/users"><img src="/images/cancel.png" alt="" /></a></p>
-                
-                
+    	<div class="sign_right_slc">
+        <div class="signUp_area">
+            <%= form_for(@user) do |f| %>
+				
+                        <p class="lable">Username</p>
+                        <p class="field"><%= f.text_field :username %></p>
+
+                         <p class="lable">Email</p>
+                         <p class="field"><%= f.email_field :email %></p>
+                          
+                          <p class="lable">First Name</p>
+                          <p class="field"><%= f.text_field :first_name %></p>
+                          
+                          <p class="lable">Last Name</p>
+                          <p class="field"><%= f.text_field :surname %></p>
+                          
+                          <p class="lable">Job Title</p>
+                          <p class="field"><%= f.text_field :job_title %></p>
+                          
+                          <p class="lable">Address Line 1</p>
+                          <p class="field"><%= f.text_field :address_line1 %></p>
+                          
+                          <p class="lable">Address Line 2</p>
+                          <p class="field"><%= f.text_field :address_line2 %></p>
+                          
+                          <p class="lable">Address Line 3</p>
+                          <p class="field"><%= f.text_field :address_line3 %></p>
+                          
+                          <p class="lable">City</p>
+                          <p class="field"><%= f.text_field :city %></p>
+                          
+                          <p class="lable">County</p>
+                          <p class="field"><%= f.text_field :county %></p>
+                          
+                          <p class="lable">Post Code</p>
+                          <p class="field"><%= f.text_field :postcode %></p>
+                          
+                          <p class="lable">Telephone(Landline)</p>
+                          <p class="field"><%= f.text_field :fix_line %></p>
+                          
+                          <p class="lable">Telephone(Mobile)</p>
+                          <p class="field"><%= f.text_field :mobile_number %></p>
+                        <% if @current_method == "new" %>
+                            <p class="lable">Password</p>
+                            <p class="field"><%= f.password_field :password %></p>
+
+                            <p class="lable">Confirm Password</p>
+                            <p class="field"><%= f.password_field :password_confirmation %></p>
+                        <% end %>
+
+                        <% if can? :new, @user %>
+                            <% for role in Role.find(:all) %>
+                      <div class="field">
+                            <% if current_user.role_id == 1 %>
+                              <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+                              <%= role.name %> 
+                              <% elsif %>
+                            <% if role.name == "admin" %>
+                              <%= f.hidden_field :s_id, :value => current_user.id %>
+                              <%= check_box_tag "user[role_ids][]", 3, @user.roles.include?(role) %>
+                              <%= "Staff" %>
+                            <% end  %>
+                            <% end %>
+                        </div>
+					
+
+                    <% end %> 
+
+                    <p align="center" class="sign_btn"><%= f.submit " ", :class =>'submit'%></p>
+                    
+                    <% end %>
+                    <% end %>
             </div>
-        </div>
-    </div>
-</div>
-<!--sign in area defined-->
+            
+            <div class="clear"></div>       
+                  </div>
+                </div>
 
-<p class="copyright" align="center">Copyright &copy; 2012, Floorserve Limited, All Rights Reserved.</p>
+                <div class="sign_ftr_slc">
+                	<div class="sign_ftr_left">
+                    	<div class="sign_ftr_right">
 
 
-</div>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--sign in area defined-->
+
+
+            </div>
+
+            <p class="copyright" align="center">Copyright &copy; 2012, Floorserve Limited, All Rights Reserved.</p>
+
+</body>
+</html>

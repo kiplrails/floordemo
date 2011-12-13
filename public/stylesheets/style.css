@@ -33,10 +33,9 @@ a:hover {
 }
 
 #wrapper {
-	width:75%;
+	width:1000px;
 	margin:auto;
 	position:relative;
-	min-height:500px;
 }
 
 #hd_bar {
@@ -49,8 +48,8 @@ a:hover {
 }
 #hd_bar .hd_left .hd_right {
 	background:url(/images/hd_right.png) no-repeat right;
-	height:40px;	
-	position: relative;
+	height:40px;
+	position:relative;
 }
 #hd_bar .hd_left .hd_right h1 {
 	margin:0;
@@ -58,13 +57,118 @@ a:hover {
 	font-size:28px;
 	letter-spacing:-1px;
 	color:#FFFFFF;
-	font-weight:normal
+	font-weight:normal;
+	width:200px;
+}
+
+#hd_bar .hd_left .hd_right .menuBar {
+	height:36px;
+	position:absolute;
+	top:0;
+	left:170px;
+	vertical-align:top
+}
+
+#hd_bar .hd_left .hd_right .menuBar ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+	vertical-align:top
+}
+#hd_bar .hd_left .hd_right .menuBar ul li {
+	display:inline;
+	vertical-align:top;
+	color:#fff;
+	font-size:14px;
+	margin:0;
+	
+
+}
+
+#hd_bar .hd_left .hd_right .menuBar ul img {
+	vertical-align:top
+}
+
+#hd_bar .hd_left .hd_right .menuBar ul li a {
+	font-family:Arial, Helvetica, sans-serif;
+	padding:9px 10px 10px 25px;
+	color:#fff;
+	text-decoration:none;
+	line-height:35px;
+	background:url(/images/bar.png) no-repeat ;
+}
+
+
+#hd_bar .hd_left .hd_right .menuBar ul li a.rightBar {
+
+	background:url(/images/bar.png) no-repeat right ;
+}
+
+
+
+#hd_bar .hd_left .hd_right .menuBar ul li a:hover {
+	color:#000000
 }
 
 #signIn_area {
 	padding:0;
 	margin:5px 0 0 0 ;
 }
+
+.search_area {
+	position:absolute;
+	top:7px;
+	right:110px;
+	width:300px;
+}
+
+.search_area .inner {
+	position:relative
+}
+.search_area .search_bk {
+	background:url(/images/search_bk.gif) no-repeat;
+	height:23px;
+	width:176px;
+	border:0;
+	position:relative;
+	padding:0 0 0 28px;
+	color:#fff;
+}
+
+
+.search_area .ico {
+	position:absolute;
+	top:5px; left:10px;
+}
+
+.bar1 {
+	position:absolute;
+	top:0;
+	right:200px;
+}
+
+
+.bar2 {
+	position:absolute;
+	top:0;
+	right:70px;
+}
+
+.setting {
+	position:absolute;
+	top:7px;
+	right:185px;
+}
+
+
+
+.signout {
+	position:absolute;
+	top:5px;
+	right:96px;
+}
+
+
 
 #signIn_area .sign_in_tp {
 	background:url(/images/sign_in_tp_alc.png) repeat-x;
@@ -75,7 +179,8 @@ a:hover {
 #signIn_area .sign_in_tp .sign_left .sign_right {
 	background:url(/images/sign_in_tp_right.png) no-repeat right top;
 	height:46px;
-	position:relative
+	position:relative;
+
 }
 #signIn_area .sign_in_tp .sign_left .sign_right h1 {
 	margin:0;
@@ -84,6 +189,35 @@ a:hover {
 	letter-spacing:-1px;
 	font-family:Arial, Helvetica, sans-serif;
 	font-weight:normal;
+}
+
+
+#signIn_area .sign_in_tp .sign_left .sign_right .message_col1 {
+	width:450px;
+	float:left;
+	font-size:13px;
+	border-right: solid 1px #ccc;
+	margin:4px 0 0 0
+	
+	
+}
+
+
+#signIn_area .sign_in_tp .sign_left .sign_right .message_col1 p {
+	padding:12px 0 13px 30px;
+	margin:0
+}
+
+
+#signIn_area .sign_in_tp .sign_left .sign_right .cal_col {
+	width:400px;
+	float:right;
+	font-size:13px;
+}
+
+
+#signIn_area .sign_in_tp .sign_left .sign_right .cal_col p {
+	padding:4px 0 0 30px;
 }
 
 #signIn_area .sign_in_tp .sign_left .sign_right h2 {
@@ -134,11 +268,56 @@ a:hover {
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 	font-size:13px;
 }
-#signIn_area .sign_right_slc .login-box input[type="text"], input[type="password"],input[type="email"]  {
-	width:100%;
+#signIn_area .sign_right_slc .login-box input[type="text"], input[type="password"]   {
+	width:231px;
 	border: solid 1px #ccc;
 	padding:3px;
 }
+
+.signUp_area form p input[type="password"] {
+	width:231px;
+	border: solid 1px #ccc;
+	padding:3px;
+}
+
+
+#signIn_area .sign_right_slc .message_col3 {
+	width:350px;
+	float:left;
+	margin:30px 0 40px 30px;
+	font-size:13px;
+	color:#282828
+	
+}
+
+#signIn_area .sign_right_slc .message_col3 p {
+	margin:0;
+	padding:0;
+	color:#282828
+}
+
+
+#signIn_area .sign_right_slc .cale_1 {
+	width:550px;
+	float:right;
+	margin:30px 0 40px 30px;
+	font-size:13px;
+	color:#282828;
+	border-left: solid 1px #ccc;
+	
+}
+
+#signIn_area .sign_right_slc .cale_1 p {
+	margin:0;
+	padding:0 20px 0 50px;
+	color:#282828
+}
+
+
+#signIn_area .sign_right_slc .tabs {
+	padding:30px;
+}
+
 
 #signIn_area .sign_ftr_slc {
 	background:url(/images/sign_in_ftr_slc.png) repeat-x;
@@ -175,6 +354,12 @@ p.copyright {
 }
 
 
+
+
+
+
+
+
 .button1 {
 	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -206,6 +391,17 @@ p.copyright {
 	position:relative;
 	top:1px;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 .button2 {
 	-moz-box-shadow:inset 0px 0px 0px 0px #ffffff;
@@ -240,6 +436,111 @@ p.copyright {
 }
 
 
+.signUp_area {
+	padding:10px 20px 30px 25px;
+}
+
+.signUp_area form {
+	margin:0;
+	padding:0;
+	font-family:Verdana, Arial, Helvetica, sans-serif
+}
+
+.signUp_area form p {
+	margin:0;
+	padding:0;
+	font-size:13px;
+	
+}	
+
+.signUp_area form p input[type=text], input[type=email] {
+	width:230px;
+	padding:3px;
+	border: solid 1px #ccc;
+	margin:0px 0 0 0;
+}
+
+.signUp_area form p select {
+	width:238px;
+	padding:3px;
+	border: solid 1px #ccc;
+	margin:0px 0 0 0;
+}
+
+
+.signUp_area form p textarea {
+	width:228px;
+	padding:3px;
+	border: solid 1px #ccc;
+	margin:0px 0 0 0;
+	height:100px
+}
+
+
+.signUp_area form p.field {
+	padding:5px 0 0 0;
+}
+
+.signUp_area form p.lable {
+	padding:13px 0 0 0;
+}
+
+.userListing {
+	padding:30px;
+}
+
+.userListing table {
+	margin:0;
+	padding:0;
+	border-collapse:collapse
+}
+
+.userListing table th {
+	padding:8px 0 8px 20px;
+	background:#EDEDED;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	border-top: solid 1px #ccc;
+	border-left: solid 1px #ccc;
+	text-align:left
+}
+
+.userListing table td {
+	padding:8px 0 8px 20px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	border-top: solid 1px #ccc;
+	border-left: solid 1px #ccc;
+	text-align:left;
+	color:#4F4F4F
+}
+
+
+.userListing table th.border-right {
+	border-right: solid 1px #ccc;
+}
+
+.userListing table td.border-right{
+	border-right: solid 1px #ccc;
+}
+.userListing table td.border-bottom{
+	border-bottom: solid 1px #ccc;
+}
+
+.userListing table td.border-bottom-right{
+	border-bottom: solid 1px #ccc;
+	border-right: solid 1px #ccc;
+}
+
+.userListing table a {
+	color:#666666;
+	text-decoration:none
+}
+.userListing table a:hover {
+	color:#000000
+}
+
+
 
 .signin
 {
@@ -253,7 +554,7 @@ p.copyright {
 
 .cancel
 {
-	background: url(images/cancel.png) no-repeat;
+	background: url(/images/cancel.png) no-repeat;
 	height:30px;
 	width:107px;
 	position:absolute;
@@ -264,4 +565,32 @@ p.copyright {
     position: absolute;
     right: 96px;
     top: 5px;
+}
+
+
+.profile_page {
+	padding:30px;
+}
+
+.profile_page h2 {
+	margin:0 0 10px 0;
+	padding:5px;
+	font-size:15px;
+	font-family:tahoma, Helvetica, sans-serif;
+	background:#666666;
+	color:#FFFFFF
+	
+}
+
+.profile_page table {
+	font-size:13px;
+}
+
+.submit
+{
+	background:url(/images/submit_btn.png) no-repeat;
+	width:119px;
+	height:30px;
+	cursor:pointer;
+	border: medium none;
 }

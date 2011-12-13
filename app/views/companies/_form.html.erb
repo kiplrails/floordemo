@@ -1,0 +1,92 @@
+<!--sign in area defined-->
+<div id="signIn_area">
+	<div class="sign_in_tp">
+    	<div class="sign_left">
+        	<div class="sign_right">
+             	<h1>New Company</h1>
+          </div>
+        </div>
+    </div>
+    <div class="sign_left_slc">
+    
+    	<div class="sign_right_slc">
+        <div class="signUp_area">
+            <%= form_for(@company) do |f| %>
+              
+              <!-- Error Message Field for Company  -->
+              <% if @company.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+                  <ul>
+                  <% @company.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %> 
+              
+				
+                        <p class="lable">Company Name</p>
+                        <p class="field"><%= f.text_field :company_name %></p>
+
+                        <p class="lable">Company Address</p>
+                        <p class="field"><%= f.text_field :company_address %></p>
+                        
+                        <p class="lable">Post Code</p>
+                        <p class="field"><%= f.text_field :post_code %></p>
+                        
+                        <p class="lable">Phone Number</p>
+                        <p class="field"><%= f.text_field :phone_number %></p>
+                        
+                        <p class="lable">Fax Number</p>
+                        <p class="field"><%= f.text_field :fax_number %></p>
+                        
+                        <p class="lable">Web Address</p>
+                        <p class="field"><%= f.text_field :web_url %></p>
+                        
+                        <p class="lable">Email Address</p>
+                        <p class="field"><%= f.text_field :email %></p>
+                        
+                        <p class="lable">VAT Number</p>
+                        <p class="field"><%= f.text_field :vat_no %></p>
+                        
+                        <p class="lable">VAT Rate</p>
+                        <p class="field"><%= f.text_field :vat_rate %></p>
+                        
+                        <p class="lable">Registration Number</p>
+                        <p class="field"><%= f.text_field :reg_no %></p>
+                        
+                        <p class="lable">Company Number</p>
+                        <p class="field"><%= f.text_field :company_number %></p>
+                        
+                        <p class="lable">Currency</p>
+                        <p class="field"><%= f.text_field :currency %></p>
+                        
+                        <div class="field">
+                          <%= f.hidden_field :user_id, :value => current_user.id %>
+                        </div>
+                        
+                         
+
+                    <p align="center" class="sign_btn"><%= f.submit "Create Company"%></p>
+                    
+                    
+                    <% end %>
+            </div>
+            
+            <div class="clear"></div>       
+                  </div>
+                </div>
+
+                <div class="sign_ftr_slc">
+                	<div class="sign_ftr_left">
+                    	<div class="sign_ftr_right">
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--sign in area defined-->

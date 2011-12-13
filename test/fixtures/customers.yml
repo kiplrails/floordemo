@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  company_name: MyString
+  vat_number: MyString
+  vat_rate: 1.5
+  gl_code: MyString
+  acc_noi: MyString
+  acc_noe: MyString
+
+two:
+  company_name: MyString
+  vat_number: MyString
+  vat_rate: 1.5
+  gl_code: MyString
+  acc_noi: MyString
+  acc_noe: MyString

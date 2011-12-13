@@ -1,4 +1,8 @@
 Floor::Application.routes.draw do
+  resources :customers
+
+  resources :companies
+
   resources :roles
 
   devise_for :users

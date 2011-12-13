@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>FloorSYS | Dashboard </title>
 <%= stylesheet_link_tag (['mm/style.css','mm/ddlevelsmenu-base.css','mm/ddlevelsmenu-topbar.css','mm/ddlevelsmenu-sidebar.css'])%>
-<%= javascript_include_tag 'ddlevelsmenu.js'%>
+<%= javascript_include_tag 'ddlevelsmenu.js','prototype.js', 'rails.js'%>
 
 <script type="text/javascript">
 ddlevelsmenu.setup("navlist", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
@@ -13,6 +13,8 @@ ddlevelsmenu.setup("navlist", "topbar") //ddlevelsmenu.setup("mainmenuid", "topb
 <script type="text/javascript">
 ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
 </script>
+
+
 </head>
 
 <body>
@@ -36,10 +38,10 @@ ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "top
             </ul>
            
             <ul id="ddsubmenu1" class="ddsubmenustyle1">
-            <% if can? :new, @user%>
-                <li><a href="new-customer.html">New Customer </a></li>
-                <li><a href="#">Edit Customer </a></li>
-            <% end %>
+            
+                <li><a href="/customers/new">New Customer </a></li>
+                <li><a href="/customers">Edit Customer </a></li>
+            
                 <li><a href="#">New Quotation</a></li>
                 <li><a href="#">New Sales Order</a></li> 
                 <li><a href="#">New Invoice</a></li>
@@ -78,9 +80,8 @@ ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "top
             </ul>
             <% if can? :new, @user%>
             <ul id="ddsubmenu5" class="ddsubmenustyle1">
-                <li><a href="/users/new">Create User</a></li>
-
-                          
+                
+         
             </ul>
             <% end %>
             </div>
@@ -90,7 +91,7 @@ ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "top
             </div>
             <div class="bar1"><img src="images/bar.png" alt="" /></div>
             <div class = "signout">
-            <%= link_to image_tag("/images/sign_out.png", :border => 0), destroy_user_session_path, :method => :delete %> 
+            <%= link_to image_tag("/images/sign_out.png", :border => 0), destroy_user_session_path %> 
                    
             </div>
             <div class="bar2"><img src="images/bar.png" alt="" /></div>
@@ -100,9 +101,11 @@ ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "top
       				<li><a href="#" rel="ddsubmenu5" style="background:none; padding:18px 0 3px 0;"><img src="images/setting.png" alt="" height="22" />&nbsp;</a>
       				<ul id="ddsubmenu5" class="ddsubmenustyle1" style="margin-left:-97px; overflow:hidden">
       					 <% if can? :new, @user%>
-      					<li><a href="/users/new">Create Staff</a></li>
-                 <li><a href="#">Create Login</a></li>
-                 <% end %>
+      					   <li><a href="/users/new">Create Staff</a></li>
+                   <li><a href="#">Create Login</a></li>
+                   <li><a href="/companies/new">Create Company</a></li>
+                <% end %>
+                
       				</ul>
       				</li>
       			</ul>
@@ -171,5 +174,7 @@ Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p>
 </div>
 
 <p class="copyright" align="center">Copyright &copy; 2012, Floorserve Limited, All Rights Reserved.</p>
+
+
 </body>
 </html>

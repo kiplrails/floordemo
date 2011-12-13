@@ -1,16 +1,200 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FloorSYS | Dashboard </title>
+<%= stylesheet_link_tag (['style.css','mm/ddlevelsmenu-base.css','mm/ddlevelsmenu-topbar.css','mm/ddlevelsmenu-sidebar.css'])%>
+<%= javascript_include_tag 'ddlevelsmenu.js'%>
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
+<script type="text/javascript">
+ddlevelsmenu.setup("navlist", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
+</script>
 
-<p>
-  <b>Username:</b>
-  <%= @user.username %>
-</p>
+<script type="text/javascript">
+ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
+</script>
+</head>
 
-<% if can? :update, @user %>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<% end %>
-<%= link_to 'Back', users_path %>
+<body>
+<div id="wrapper">
+<!--head bar start-->
+<div id="hd_bar">
+	<div class="hd_left">
+    	<div class="hd_right">
+        	<h1>FloorSYS</h1>
+            <div class="menuBar">
+            	<ul id="navlist" >
+                <li><a href="#" rel="ddsubmenu1" >Customers</a></li>
+                <li><a href="#" rel="ddsubmenu2">Suppliers</a></li>
+                <li><a href="#" rel="ddsubmenu3">Fitters</a></li>
+                <li><a href="#" rel="ddsubmenu4"> Products</a></li>
+                <li><a href="#"> &nbsp;</a></li>   
+            </ul>
+            <ul id="ddsubmenu1" class="ddsubmenustyle1">
+                <li><a href="/customers/new">New Customer </a></li>
+                <li><a href="/customers">Edit Customer </a></li>
+                <li><a href="#">New Quotation</a></li>
+                <li><a href="#">New Sales Order</a></li> 
+                <li><a href="#">New Invoice</a></li>
+                <li><a href="#">New Credit </a></li> 
+                <li><a href="#">New Complaint</a></li>  
+                <li><a href="#">Cash Register</a></li>   
+                <li><a href="#">Customer List</a></li>  
+                <li><a href="#">Quotation List</a></li>
+                <li><a href="#">Sales Order List </a></li> 
+                <li><a href="#">Invoice List</a></li>  
+                <li><a href="#">Complaint List </a></li>                      
+            </ul>
+            <ul id="ddsubmenu2" class="ddsubmenustyle1">
+                <li><a href="#">New Supplier</a></li>
+                <li><a href="#">Edit Supplier</a></li>
+                <li><a href="#">New Purchase Order</a></li>
+                <li><a href="#">Supplier List</a></li> 
+                <li><a href="#">Purchase Order List </a></li>
+                <li><a href="#">Cash Register</a></li>                 
+            </ul>
+             <ul id="ddsubmenu3" class="ddsubmenustyle1">
+                <li><a href="#">New Fitter</a></li>
+                <li><a href="#">Edit Fitters</a></li>
+                <li><a href="#">New Fitter Invoice</a></li>
+                <li><a href="#">Fitters List </a></li>           
+            </ul>
+            <ul id="ddsubmenu4" class="ddsubmenustyle1">
+                <li><a href="#">New Product</a></li>
+                <li><a href="#">Edit Product</a></li>
+                <li><a href="#">New Category</a></li>
+                <li><a href="#">Edit Categories</a></li>  
+                <li><a href="#">List Categories</a></li> 
+                <li><a href="#">List Products</a></li> 
+                <li><a href="#">List Prices </a></li> 
+                          
+            </ul>
+            </div>
+            
+            <div class="search_area">
+            	<div class="inner"><input type="text" class="search_bk" />  <input type="image" src="/images/search_ic.gif" height="14"  width="15" class="ico" />  </div>
+            </div>
+            <div class="bar1"><img src="/images/bar.png" alt="" /></div>
+            <div class = "signout">
+              <%= link_to image_tag("/images/sign_out.png", :border => 0), destroy_user_session_path %> 
+            </div>
+            <div class="bar2"><img src="/images/bar.png" alt="" /></div>
+            <div class="setting">
+				<div class="menuBar" style="position:relative; ">
+            <ul id="navlist1">
+				<li><a href="#" rel="ddsubmenu5" style="background:none; padding:18px 0 3px 0;"><img src="/images/setting.png" alt="" height="22" />&nbsp;</a>
+				<ul id="ddsubmenu5" class="ddsubmenustyle1" style="margin-left:-97px; overflow:hidden">
+					 <li><a href="#">Sublink1</a></li>
+                	<li><a href="#">Sublink1</a></li>
+				</ul>
+				</li>
+			</ul>
+            </div>
+			</div>
+            
+      </div>
+    </div>
+</div>
+<!--head bar end-->
+
+<!--sign in area defined-->
+<div id="signIn_area">
+	<div class="sign_in_tp">
+    	<div class="sign_left">
+        	<div class="sign_right">
+             	<h1>Profile</h1>
+          </div>
+        </div>
+    </div>
+    
+	<div class="sign_left_slc">
+    
+    	<div class="sign_right_slc">
+             
+             <div class="profile_page">
+             	<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td width="18%" valign="top"><div><img src="/images/avtar.png" alt="" /></div></td>
+    <td width="82%" valign="top">
+    	<h2>Contact Information</h2>
+        <table width="100%" border="0" cellspacing="2" cellpadding="2">
+          <tr>
+            <td width="12%">Email : </td>
+            <td width="88%"><%= @user.email %></td>
+          </tr>
+          <tr>
+            <td width="12%">User Name :  </td>
+            <td width="88%"><%= @user.username %></td>
+          </tr>
+          
+        
+          <tr>
+            <td>Address :  </td>
+            <td><%= @user.address_line1 %></td>
+          </tr>
+           <tr>
+            <td>City :  </td>
+            <td><%= @user.city %></td>
+          </tr>
+          <tr>
+            <td>County :  </td>
+            <td><%= @user.county %></td>
+          </tr>
+          <tr>
+            <td>Phone :  </td>
+            <td><%= @user.fix_line %></td>
+          </tr>
+          
+           <tr>
+            <td>Mobile :  </td>
+            <td><%= @user.mobile_number %></td>
+          </tr>
+        </table><br />
+        <h2>Other Information</h2>
+         <table width="100%" border="0" cellspacing="2" cellpadding="2">
+          <tr>
+            <td width="12%">First Name :  </td>
+            <td width="88%"><%= @user.first_name %></td>
+          </tr>
+          <tr>
+            <td>Last Name :  </td>
+            <td><%= @user.surname %></td>
+          </tr>
+          <tr>
+            <td>Job Title :  </td>
+            <td><%= @user.job_title %></td>
+          </tr>
+          
+          
+                
+        </table>
+
+    </td>
+  </tr>
+</table>
+
+             </div>
+        
+         <div class="clear"></div>       
+      </div>
+    </div>
+    
+    <div class="sign_ftr_slc">
+    	<div class="sign_ftr_left">
+        	<div class="sign_ftr_right">
+            
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!--sign in area defined-->
+</div>
+<p class="copyright" align="center">Copyright &copy; 2012, Floorserve Limited, All Rights Reserved.</p>
+<script type="text/javascript">
+<!--
+var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
+//-->
+</script>
+</body>
+</html>
