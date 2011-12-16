@@ -17,8 +17,7 @@ class Ability
       elsif user.role? :staff
         can :read, [User]
         can :manage, [User]
-        can :new, [Customer]
-        can :manage, [Customer]
+        
         
       else
         can :manage, [Role]

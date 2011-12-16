@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   layout 'dashboard'
+  require 'ruby-debug'
   
   # GET /customers
   # GET /customers.xml
@@ -16,7 +17,7 @@ class CustomersController < ApplicationController
   # GET /customers/1.xml
   def show
     @customer = Customer.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @customer }
@@ -27,6 +28,12 @@ class CustomersController < ApplicationController
   # GET /customers/new.xml
   def new
     @customer = Customer.new
+    2.times do
+      contact = @customer.contacts.build
+    end
+    2.times do
+      communication = @customer.communications.build
+    end
 
     respond_to do |format|
       format.html # new.html.erb

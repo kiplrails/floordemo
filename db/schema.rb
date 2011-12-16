@@ -10,9 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111213062634) do
+ActiveRecord::Schema.define(:version => 20111216101557) do
 
-  
+  create_table "communications", :force => true do |t|
+    t.integer  "customer_id"
+    t.date     "comm_date"
+    t.string   "comm_type"
+    t.string   "comm_subject"
+    t.string   "comm_notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "companies", :force => true do |t|
     t.string   "company_name"
@@ -32,8 +40,17 @@ ActiveRecord::Schema.define(:version => 20111213062634) do
     t.integer  "user_id"
   end
 
-  
-  
+  create_table "contacts", :force => true do |t|
+    t.integer  "customer_id"
+    t.string   "contact_name"
+    t.string   "contact_position"
+    t.integer  "contact_number"
+    t.integer  "contact_mobile_number"
+    t.string   "contact_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "customers", :force => true do |t|
     t.string   "company_name"
     t.string   "vat_number"
@@ -44,22 +61,12 @@ ActiveRecord::Schema.define(:version => 20111213062634) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "contact_id"
-    t.string   "contact_name"
-    t.string   "contact_position"
-    t.integer  "contact_number"
-    t.integer  "contact_mobile_number"
-    t.string   "contact_email"
     t.string   "credit_limit"
     t.string   "settelment_due"
     t.string   "settelment_discount"
     t.string   "trading_terms"
     t.string   "credit_position"
     t.string   "account_on_hold"
-    t.date     "comm_date"
-    t.string   "contact_type"
-    t.string   "comm_subject"
-    t.string   "comm_notes"
   end
 
   create_table "privileges", :force => true do |t|

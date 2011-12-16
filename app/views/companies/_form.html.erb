@@ -8,8 +8,7 @@
         </div>
     </div>
     <div class="sign_left_slc">
-    
-    	<div class="sign_right_slc">
+      <div class="sign_right_slc">
         <div class="signUp_area">
             <%= form_for(@company) do |f| %>
               
@@ -65,15 +64,15 @@
                         
                         <div class="field">
                           <%= f.hidden_field :user_id, :value => current_user.id %>
-                        </div>
-                        
-                         
+                        </div>&nbsp;
 
-                    <p align="center" class="sign_btn"><%= f.submit " ", :class => 'submit' %></p>
+                   <p class="lable"> <div class = "submit"><%= f.submit " ", :class => 'submit' %></div>
+                    
                     
                     
                     <% end %>
             </div>
+            
             
             <div class="clear"></div>       
                   </div>
@@ -83,7 +82,8 @@
                 	<div class="sign_ftr_left">
                     	<div class="sign_ftr_right">
 
-
+                        
+                        
 
                         </div>
                     </div>

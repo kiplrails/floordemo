@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  customer_id: 1
+  contact_name: MyString
+  contact_position: MyString
+  contact_number: 1
+  contact_mobile_number: 1
+  contact_email: MyString
+
+two:
+  customer_id: 1
+  contact_name: MyString
+  contact_position: MyString
+  contact_number: 1
+  contact_mobile_number: 1
+  contact_email: MyString

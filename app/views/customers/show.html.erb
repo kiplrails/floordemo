@@ -51,22 +51,23 @@
         	    <!-- Genral Tab Content Ends  -->
         	    <!-- Contact Tab Content -->
         	    <div class="TabbedPanelsContent">
+        	   <% for contact in @customer.contacts %>
         	   
         	        <p class="lable">Contact Name</p>
-                  <p class="field"><%= @customer.contact_name %></p></br>
+                  <p class="field"><%=h contact.contact_name %></p></br>
                  
                   <p class="lable">Contact Position</p>
-                  <p class="field"><%= @customer.contact_position %></p></br>
+                  <p class="field"><%=h contact.contact_position %></p></br>
                   
                   <p class="lable">Contact Number</p>
-                  <p class="field"><%= @customer.contact_number %></p></br>
+                  <p class="field"><%=h contact.contact_number %></p></br>
                   
                   <p class="lable">Mobile Number</p>
-                  <p class="field"><%= @customer.contact_mobile_number %></p></br>
+                  <p class="field"><%=h contact.contact_mobile_number %></p></br>
                   
                   <p class="lable">Email Address</p>
-                  <p class="field"><%= @customer.contact_email %></p></br>
-
+                  <p class="field"><%=h contact.contact_email %></p></br>
+              <% end %>
         	    </div>
         	       
         	    <!-- Contact Tab Ends Here-->
@@ -103,19 +104,20 @@ Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p></div>
               
               <!-- Communications Tab Starts Here-->
                 <div class="TabbedPanelsContent">
+                <% for communication in @customer.communications %>
                   <p class="lable">Communication Date</p>
-                  <p class="field"><%= @customer.comm_date%></p></br>
+                  <p class="field"><%=h communication.comm_date%></p></br>
                   
                   <p class="lable">Contact Type </p>
-                  <p class="field"><%= @customer.contact_type %></p></br>
+                  <p class="field"><%=h communication.comm_type %></p></br>
                   
                   <p class="lable">Communication Subject </p>
-                  <p class="field"><%= @customer.comm_subject %></p></br>
+                  <p class="field"><%=h communication.comm_subject %></p></br>
                   
                   <p class="lable">Communication Notes </p>
-                  <p class="field"><%= @customer.comm_notes %></p></br>
+                  <p class="field"><%=h communication.comm_notes %></p></br>
                 </div>
-                
+              <% end  %>
               <!-- Communications Tab Ends Here-->  
                 <div class="TabbedPanelsContent"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
 
@@ -140,8 +142,8 @@ Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p>
            <div class="clear">
             
            </div>   
-           <%= link_to 'Edit', edit_customer_path(@customer) %> |
-           <%= link_to 'Back', customers_path %>
+          <p> <%= link_to '', edit_customer_path(@customer), :class => 'edit' %>&nbsp;  <%= link_to '', customers_path, :class => 'back' %>&nbsp;</p>
+          
          </div>   
           
          <div class="clear"></div>       

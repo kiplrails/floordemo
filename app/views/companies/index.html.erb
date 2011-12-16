@@ -28,7 +28,7 @@
       
       <td class="border-bottom"><%= company.phone_number %></td>
       
-      <td class="border-bottom-right"><%= link_to 'View', company %> | <%= link_to 'Edit', edit_company_path(company) %> | <%= link_to 'Destroy', company , :confirm => 'Are you sure?', :method => :destroy %></td>
+      <td class="border-bottom-right"><%= link_to 'View', company %> | <%= link_to 'Edit', edit_company_path(company) %> | <%= link_to 'Destroy', company , :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>

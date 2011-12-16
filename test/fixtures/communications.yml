@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  customer_id: 1
+  comm_date: 2011-12-16
+  comm_type: MyString
+  comm_subject: MyString
+  comm_notes: MyString
+
+two:
+  customer_id: 1
+  comm_date: 2011-12-16
+  comm_type: MyString
+  comm_subject: MyString
+  comm_notes: MyString

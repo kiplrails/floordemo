@@ -594,3 +594,35 @@ p.copyright {
 	cursor:pointer;
 	border: medium none;
 }
+
+.back
+{
+	background:url(/images/back_btn.png) no-repeat;
+	width:99px;
+	height:30px;
+	cursor:pointer;
+	float:left;
+	border: medium none;
+}
+
+.edit
+{
+	background:url(/images/edit_btn.png) no-repeat;
+	width:99px;
+	height:30px;
+	cursor:pointer;
+	float:left;
+	margin-left:10px;
+	border: medium none;
+}
+
+.show
+{
+	background:url(/images/show_btn.png) no-repeat;
+	width:99px;
+	height:30px;
+	cursor:pointer;
+	float:left;
+	margin-left:10px;
+	border: medium none;
+}

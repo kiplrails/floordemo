@@ -4,12 +4,14 @@
     	<div class="sign_left">
         	<div class="sign_right">
              	<h1>New Customer</h1>
+             	
           </div>
         </div>
+        
     </div>
     
 	<div class="sign_left_slc">
-    
+      
     	<div class="sign_right_slc">
         <div class="tabs">
        	  <div id="TabbedPanels1" class="TabbedPanels">
@@ -25,7 +27,7 @@
         	    <!-- Genral Tab content  -->
         	    <div class="signUp_area">
         	    <div class="TabbedPanelsContent">
-        	        <%= form_for(@customer) do |f| %>
+        	        <%= nested_form_for(@customer) do |f| %>
                     <% if @customer.errors.any? %>
                       <div id="error_explanation">
                         <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
@@ -57,36 +59,26 @@
                     <p class="lable">Account Number(External)</p>
                     <p class="field"><%= f.text_field :acc_noe %></p></br>
                     
-                    
-                    
-                    
-                    
+                    <div class="field">
+                       <%= f.hidden_field :user_id, :value => current_user.id %>
+                     </div>
+                  
                      
-                      
-               
+                   
         	    </div>
         	    </div>
-        	    <!-- Genral Tab Content Ends  -->
+        	    <!-- General Tab Content Ends  -->
         	    <!-- Contact Tab Content -->
-        	    <div class="TabbedPanelsContent">
-        	   
-        	        <p class="lable">Contact Name</p>
-                  <p class="field"><%= f.text_field :contact_name %></p></br>
-                 
-                  <p class="lable">Contact Position</p>
-                  <p class="field"><%= f.text_field :contact_position %></p></br>
-                  
-                  <p class="lable">Contact Number</p>
-                  <p class="field"><%= f.text_field :contact_number %></p></br>
-                  
-                  <p class="lable">Mobile Number</p>
-                  <p class="field"><%= f.text_field :contact_mobile_number %></p></br>
-                  
-                  <p class="lable">Email Address</p>
-                  <p class="field"><%= f.text_field :contact_email %></p></br>
-
-        	    </div>
-        	       
+            
+        	  <div class="TabbedPanelsContent">
+        	    <%= f.fields_for :contacts do |builder| %>
+        	    <%= render "contact_fields", :f => builder %>
+              <% end %>
+              <p><%= link_to_add_fields "Add Contact", f, :contacts %></p>
+            	
+              </div>
+              
+        
         	    <!-- Contact Tab Ends Here-->
                 
               <!-- Credit Tab Starts Here-->
@@ -120,23 +112,14 @@ In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum fe
 Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p></div>
               
               <!-- Communications Tab Starts Here-->
+              
                 <div class="TabbedPanelsContent">
-                  <p class="lable">Communication Date</p>
-                  <p class="field"><%= f.date_select("comm_date")%></p></br>
+                <%= f.fields_for :communications do |builder| %>
+                  <%= render "communication_fields", :f => builder%>
                   
-                  <p class="lable">Contact Type </p>
-                  <p class="field"><%= f.text_field :contact_type %></p></br>
-                  
-                  <p class="lable">Communication Subject </p>
-                  <p class="field"><%= f.text_field :comm_subject %></p></br>
-                  
-                  <p class="lable">Communication Notes </p>
-                  <p class="field"><%= f.text_area :comm_notes %></p></br>
-                  <div class="field">
-                     <%= f.hidden_field :user_id, :value => current_user.id %>
-                   </div>
-                </div>
-                
+              <% end %>
+              <p><%= link_to_add_fields "Add Communication", f, :communications %></p>
+              </div>
               <!-- Communications Tab Ends Here-->  
                 <div class="TabbedPanelsContent"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
 
@@ -163,6 +146,7 @@ Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p>
            </div> 
            
            <p align="center" class="submit"><%= f.submit " ", :class =>'submit'%></p>
+          
            <% end %>    
          </div>   
           

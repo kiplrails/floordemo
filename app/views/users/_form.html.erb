@@ -177,6 +177,8 @@ ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "top
                     <% end %> 
 
                     <p align="center" class="sign_btn"><%= f.submit " ", :class =>'submit'%></p>
+                    <p><%= link_to '', @user, :class => 'show' %>&nbsp;</p>
+                    <p><%= link_to '', users_path, :class => 'back' %>&nbsp;</p>
                     
                     <% end %>
                     <% end %>
