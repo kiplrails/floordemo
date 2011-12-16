@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   layout 'dashboard'
-  require 'ruby-debug'
+  
   
   # GET /customers
   # GET /customers.xml
