@@ -14,6 +14,9 @@ gem "carrierwave"
 
 gem 'ancestry'
 
+gem 'aws-s3'
+gem 'cocaine'
+
  gem "nested_form"
 gem "will_paginate", "~> 3.0.pre4"
 
