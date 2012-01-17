@@ -1,7 +1,7 @@
 CarrierWave.configure do |config|
   config.root = Rails.root.join('tmp') # adding these...
   
-  config.cache_dir = "#{Rails.root}/config/s3.yml"
+  config.cache_dir = "#{Rails.root}/public/uploads/tmp"
   
 
   config.s3_access_key_id = ENV['AKIAIWWQF5REKTC4ZYGQ']
