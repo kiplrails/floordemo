@@ -1,5 +1,11 @@
-Floor::Application.routes.draw do
-  
+Floor::Application.routes.draw do |map|
+  map.connect '/products/:id/delete', :controller=>'products', :action=>'destroy'
+  resources :products
+
+  resources :suppliers
+
+  resources :categories
+
   resources :customers
 
   resources :companies

@@ -28,10 +28,10 @@ class CustomersController < ApplicationController
   # GET /customers/new.xml
   def new
     @customer = Customer.new
-    2.times do
+    1.times do
       contact = @customer.contacts.build
     end
-    2.times do
+    1.times do
       communication = @customer.communications.build
     end
 

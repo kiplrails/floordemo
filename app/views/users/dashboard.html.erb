@@ -39,8 +39,8 @@ ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "top
            
             <ul id="ddsubmenu1" class="ddsubmenustyle1">
             
-                <li><a href="/customers/new">New Customer </a></li>
-                <li><a href="/customers">Edit Customer </a></li>
+                <li><%= link_to "New Customer", new_customer_path(@customer) %></li>
+                <li><%= link_to "Edit Customer", customers_path(@customer) %></li>
             
                 <li><a href="#">New Quotation</a></li>
                 <li><a href="#">New Sales Order</a></li> 
@@ -55,8 +55,8 @@ ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "top
                 <li><a href="#">Complaint List </a></li>                      
             </ul>
             <ul id="ddsubmenu2" class="ddsubmenustyle1">
-                <li><a href="#">New Supplier</a></li>
-                <li><a href="#">Edit Supplier</a></li>
+                <li><%= link_to "New Supplier", new_supplier_path(@supplier) %></li>
+                <li><%= link_to "Edit Supplier", suppliers_path(@supplier) %></li>
                 <li><a href="#">New Purchase Order</a></li>
                 <li><a href="#">Supplier List</a></li> 
                 <li><a href="#">Purchase Order List </a></li>
@@ -69,10 +69,12 @@ ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "top
                 <li><a href="#">Fitters List </a></li>           
             </ul>
             <ul id="ddsubmenu4" class="ddsubmenustyle1">
-                <li><a href="#">New Product</a></li>
-                <li><a href="#">Edit Product</a></li>
-                <li><a href="#">New Category</a></li>
-                <li><a href="#">Edit Categories</a></li>  
+                <li><%= link_to "New Product", new_product_path(@product) %></li>
+                <li><%= link_to "Edit product", products_path(@product) %></li>
+                <% if can? :new, @category %>
+                <li><%= link_to "New Category", new_category_path(@category) %></li>
+                <li><%= link_to "Edit Category", categories_path(@category) %></li>
+                <% end %>
                 <li><a href="#">List Categories</a></li> 
                 <li><a href="#">List Products</a></li> 
                 <li><a href="#">List Prices </a></li> 

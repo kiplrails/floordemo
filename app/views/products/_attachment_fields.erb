@@ -1,0 +1,8 @@
+<div class="fields">
+<p>
+<%= image_tag(f.object.file.url) if f.object.file? %>
+</p>
+    <p class="lable">Attach File</p>
+     <p class="field"><%= f.file_field :file %></p></br>
+     <p><%= link_to_remove_fields "remove", f %></p>
+   </div>

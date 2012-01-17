@@ -9,7 +9,13 @@ gem 'rails', '3.0.9'
 
  gem 'ruby-mysql', '2.9.3'
 
-gem "nested_form"
+gem "rmagick"
+gem "carrierwave"
+
+gem 'ancestry'
+
+ gem "nested_form"
+gem "will_paginate", "~> 3.0.pre4"
 
 # Use unicorn as the web server
 # gem 'unicorn'

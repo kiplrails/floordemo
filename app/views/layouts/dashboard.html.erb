@@ -3,8 +3,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>FloorSYS | Dashboard </title>
-<%= stylesheet_link_tag (['style.css','mm/ddlevelsmenu-base.css','mm/ddlevelsmenu-topbar.css','mm/ddlevelsmenu-sidebar.css','mm/SpryTabbedPanels.css'])%>
-<%= javascript_include_tag 'ddlevelsmenu.js','SpryTabbedPanels.js','prototype.js','application.js','rails.js'%>
+<%= stylesheet_link_tag (['style.css','mm/ddlevelsmenu-base.css','mm/ddlevelsmenu-topbar.css','mm/ddlevelsmenu-sidebar.css','mm/SpryTabbedPanels.css', 'tab'])%>
+<%= javascript_include_tag 'ddlevelsmenu.js','SpryTabbedPanels.js','prototype.js','application.js','rails.js', 'tabber' %>
+<%= javascript_include_tiny_mce_if_used %> 
+<%= tiny_mce if using_tiny_mce? %>
+
+<script type="text/javascript">
+
+/* Optional: Temporarily hide the "tabber" class so it does not "flash"
+   on the page as plain HTML. After tabber runs, the class is changed
+   to "tabberlive" and it will appear. */
+
+document.write('<style type="text/css">.tabber{display:none;}<\/style>');
+</script>
 
 <script type="text/javascript">
 ddlevelsmenu.setup("navlist", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
@@ -31,25 +42,25 @@ ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "top
                 <li><a href="#"> &nbsp;</a></li>   
             </ul>
             <ul id="ddsubmenu1" class="ddsubmenustyle1">
-                <li><a href="/customers/new">New Customer </a></li>
-                <li><a href="/customers">Edit Customer </a></li>
+                <li><%= link_to "New Customer", new_customer_path%></li>
+                <li><%= link_to "Edit Customer", customers_path %></li>
                 <li><a href="#">New Quotation</a></li>
                 <li><a href="#">New Sales Order</a></li> 
                 <li><a href="#">New Invoice</a></li>
                 <li><a href="#">New Credit </a></li> 
                 <li><a href="#">New Complaint</a></li>  
                 <li><a href="#">Cash Register</a></li>   
-                <li><a href="#">Customer List</a></li>  
+                <li><%= link_to "Customer List", customers_path %></li>  
                 <li><a href="#">Quotation List</a></li>
                 <li><a href="#">Sales Order List </a></li> 
                 <li><a href="#">Invoice List</a></li>  
                 <li><a href="#">Complaint List </a></li>                      
             </ul>
             <ul id="ddsubmenu2" class="ddsubmenustyle1">
-                <li><a href="#">New Supplier</a></li>
-                <li><a href="#">Edit Supplier</a></li>
+                <li><%= link_to "New Supplier", new_supplier_path %></li>
+                <li><%= link_to "Edit Supplier", suppliers_path %></li>
                 <li><a href="#">New Purchase Order</a></li>
-                <li><a href="#">Supplier List</a></li> 
+                <li><%= link_to "Supplier List", suppliers_path %></li> 
                 <li><a href="#">Purchase Order List </a></li>
                 <li><a href="#">Cash Register</a></li>                 
             </ul>
@@ -60,12 +71,14 @@ ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "top
                 <li><a href="#">Fitters List </a></li>           
             </ul>
             <ul id="ddsubmenu4" class="ddsubmenustyle1">
-                <li><a href="#">New Product</a></li>
-                <li><a href="#">Edit Product</a></li>
-                <li><a href="#">New Category</a></li>
-                <li><a href="#">Edit Categories</a></li>  
-                <li><a href="#">List Categories</a></li> 
-                <li><a href="#">List Products</a></li> 
+                <li><%= link_to "New Product", new_product_path %></li>
+                <li><%= link_to "Edit product", products_path %></li>
+                <% if can? :new, @category %>
+                <li><%= link_to "New Category", new_category_path %></li>
+                <li><%= link_to "Edit Category", categories_path %></li>  
+                <% end %>
+                <li><%= link_to "List Categories", categories_path %></li> 
+                <li><%= link_to "List Products", products_path %></li> 
                 <li><a href="#">List Prices </a></li> 
                           
             </ul>

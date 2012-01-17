@@ -1,0 +1,280 @@
+<!--sign in area defined-->
+<div id="signIn_area">
+	<div class="sign_in_tp">
+    	<div class="sign_left">
+        	<div class="sign_right">
+             	<h1>Product Information</h1>
+          </div>
+        </div>
+    </div>
+    
+	<div class="sign_left_slc">
+    
+    	<div class="sign_right_slc">
+        <div class="tabs">
+       	  <div id="TabbedPanels1" class="customer">
+        	  <ul class="customerTabGroup">
+        	    <li class="customerTab" tabindex="0" style="margin:0 0 0 20px">General</li>
+        	    <li class="customerTab" tabindex="0">UOM</li>
+        	    <li class="customerTab" tabindex="0">Varients</li>
+              <li class="customerTab" tabindex="0">Discounts </li>
+              <li class="customerTab" tabindex="0">Attachments</li>
+      	    </ul>
+        	  <div class="customerContentGroup">
+        	    <div class="customerContent">
+                	<table width="100%" border="0" cellspacing="2" cellpadding="2">
+                      <tr>
+                        <td valign="top" width="50%">
+                        	<div style="background:#E6E6E6; padding:1px">
+                            	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                  <tr>
+                                    <th>Supplier</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%= @product.supplier_id %></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Category</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%= @product.category_id %></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Product Code</th>
+                                  </tr>
+                                  <tr>
+                                    <td> <%= @product.product_code %></td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <th>MAnufacturers Name</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%= @product.manufacturer_name %></td>
+                                  </tr>
+                                  
+                                  
+                                </table>
+
+                            </div>
+                        </td>
+                        <td valign="top" width="50%"><div style="background:#E6E6E6; padding:1px">
+                            	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                   <tr>
+                                      <th>Product Name</th>
+                                    </tr>
+                                    <tr>
+                                      <td><%= @product.product_name %></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th>Full Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td><%= @product.full_description.html_safe %></td>
+                                    </tr>
+                                      
+                                    <tr>
+                                        <th>Status</th>
+                                    </tr>
+                                    <tr>
+                                        <td><%= @product.status %></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th>Image</th>
+                                    </tr>
+                                    <tr>
+                                        <td><%= image_tag @product.image_url(:thumb) if @product.image? %></td>
+                                    </tr>
+                                </table>
+
+                            </div></td>
+                            
+                      </tr>
+                      <tr>
+                        <td valign="top" width="50%"><div style="background:#E6E6E6; padding:1px">
+                            	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                   <tr>
+                                       <th>Options </th>
+                                   </tr>
+                                   <tr>
+                                       <td><%= @product.set_options %></td>
+                                   </tr>
+				
+                                   
+                                </table>
+
+                            </div></td>
+                      </tr>
+                    </table>
+
+                </div>
+        	    <div class="customerContent">
+        	    <% for uoms in @product.uoms %>
+                	<table width="100%" border="0" cellspacing="2" cellpadding="2">
+                      <tr>
+                        <td valign="top" width="50%">
+                        	<div style="background:#E6E6E6; padding:1px">
+                        	
+                            	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                  <tr>
+                                    <th>By Unit</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%=h uoms.by_unit %></td>
+                                  </tr>
+                                  <tr>
+                                    <th>By area</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%=h uoms.by_area %></td>
+                                  </tr>
+                                  <tr>
+                                    <th>By Length</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%=h uoms.by_length %></td>
+                                  </tr>
+                                </table>
+
+                            </div>
+                        </td>
+                        <td valign="top" width="50%"><div style="background:#E6E6E6; padding:1px">
+                            	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                  <tr>
+                                    <th>By Volume</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%=h uoms.by_volume %></td>
+                                  </tr>
+                                  <tr>
+                                    <th>By Weight</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%=h uoms.by_weight %></td>
+                                  </tr>
+                                  
+                                </table>
+                                
+                            </div></td>
+                      </tr>
+                    </table>
+                    
+                    <% end %>
+                </div>
+                
+                   <div class="customerContent">
+              	    <% for varients in @product.varients %>
+                      	<table width="100%" border="0" cellspacing="2" cellpadding="2">
+                            <tr>
+                              <td valign="top" width="50%">
+                              	<div style="background:#E6E6E6; padding:1px">
+
+                                  	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                        <tr>
+                                          <th>Varient Name</th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h varients.var_name %></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Varient Name</th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h varients.var_length %></td>
+                                        </tr>
+                                        
+                                      </table>
+
+                                  </div>
+                              </td>
+                              
+                            </tr>
+                          </table>
+
+                          <% end %>
+                      </div>
+                
+                <div class="customerContent">
+                <% for discounts in @product.discounts %>
+                <table width="100%" border="0" cellspacing="2" cellpadding="2">
+
+                            <tr>
+
+                              <td valign="top" width="50%">
+                              	<div style="background:#E6E6E6; padding:1px">
+                              		
+                                  	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                        <tr>
+                                          <th>Discount in % </th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h discounts.discount%></td>
+                                        </tr>
+                                       
+                                      </table>
+
+                                  </div>
+                              </td>
+                              
+                            </tr>
+
+                          </table>
+                        <% end %>
+                </div>
+                <div class="customerContent">
+                 <% for attachments in @product.attachments %>
+                <table width="100%" border="0" cellspacing="2" cellpadding="2">
+
+                            <tr>
+
+                              <td valign="top" width="50%">
+                              	<div style="background:#E6E6E6; padding:1px">
+                              		
+                                  	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                        <tr>
+                                          <th>Attached Files </th>
+                                        </tr>
+                                        <tr>
+                                          <td><%= attachments.file %> - <%= link_to("Download", attachments.file_url) %></td>
+                                        </tr>
+                                       
+                                      </table>
+
+                                  </div>
+                              </td>
+                              
+                            </tr>
+
+                          </table>
+                        <% end %>
+                </div>
+                
+      	    </div>
+      	  </div>
+          
+           <div class="clear"></div>       
+         </div>   
+          
+         <div class="clear"></div>       
+      </div>
+    </div>
+    
+    <div class="sign_ftr_slc">
+    	<div class="sign_ftr_left">
+        	<div class="sign_ftr_right">
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!--sign in area defined-->
+
+
+</div>
+<script type="text/javascript">
+<!--
+var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
+//-->
+</script>

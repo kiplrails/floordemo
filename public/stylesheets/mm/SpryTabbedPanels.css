@@ -34,6 +34,15 @@
 	width: 100%; /* IE Hack to force proper layout when preceded by a paragraph. (hasLayout Bug)*/
 }
 
+.customer {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	clear: none;
+	width: 100%; /* IE Hack to force proper layout when preceded by a paragraph. (hasLayout Bug)*/
+}
+
+
 /* This is the selector for the TabGroup. The TabGroup container houses
  * all of the tab buttons for each tabbed panel in the widget. This container
  * does not contribute anything visually to the look of the widget for our
@@ -44,6 +53,10 @@
  * want to style the TabGroup container.
  */
 .TabbedPanelsTabGroup {
+	margin: 0px;
+	padding: 0px;
+}
+.customerTabGroup {
 	margin: 0px;
 	padding: 0px;
 }
@@ -87,12 +100,40 @@
 	border-radius:5px 5px 0px 0px; 
 }
 
+
+.customerTab {
+	position: relative;
+	top: 1px;
+	float: left;
+	padding: 8px 15px;
+	margin: 0px 1px 0px 5px;
+	font: bold 0.7em sans-serif;
+	background-color: #DDD;
+	list-style: none;
+	border-left: solid 1px #CCC;
+	border-bottom: solid 1px #999;
+	border-top: solid 1px #999;
+	border-right: solid 1px #999;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	cursor: pointer;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	border: solid 1px #ccc;
+	-webkit-border-radius: 5px 5px 0px 5px; 
+	-moz-border-radius: 5px 5px 0px 5px; 
+	border-radius:5px 5px 0px 0px; 
+}
+
 /* This selector is an example of how to change the appearnce of a tab button
  * container as the mouse enters it. The class "TabbedPanelsTabHover" is
  * programatically added and removed from the tab element as the mouse enters
  * and exits the container.
  */
 .TabbedPanelsTabHover {
+	background-color: #CCC;
+}
+
+.customerTabHover {
 	background-color: #CCC;
 }
 
@@ -112,6 +153,11 @@
 	border-bottom: 1px solid #eee;
 }
 
+.customerTabSelected {
+	background-color: #fff;
+	border-bottom: 1px solid #fff;
+}
+
 /* This selector is an example of how to make a link inside of a tab button
  * look like normal text. Users may want to use links inside of a tab button
  * so that when it gets focus, the text *inside* the tab button gets a focus
@@ -122,6 +168,11 @@
 	text-decoration: none;
 }
 
+
+.customerTab a {
+	color: black;
+	text-decoration: none;
+}
 /* This is the selector for the ContentGroup. The ContentGroup container houses
  * all of the content panels for each tabbed panel in the widget. For our
  * default style, this container provides the background color and borders that
@@ -140,6 +191,27 @@
 	background-color: #EEE;
 }
 
+.customerContentGroup {
+	clear: both;
+	border-left: solid 1px #CCC;
+	border-bottom: solid 1px #CCC;
+	border-top: solid 1px #ccc;
+	border-right: solid 1px #ccc;
+	background-color: #EEE;
+	-webkit-border-radius: 10px 10px 10px 10px; 
+	-moz-border-radius:10px 10px 10px 10px; 
+	border-radius:10px 10px 10px 10px; 
+	
+}
+
+.customerContent {
+	padding: 25px;
+	background:#fff;
+	-webkit-border-radius: 10px 10px 10px 10px; 
+	-moz-border-radius:10px 10px 10px 10px; 
+	border-radius:10px 10px 10px 10px; 
+}
+
 /* This is the selector for the Content panel. The Content panel holds the
  * content for a single tabbed panel. For our default style, this container
  * provides some padding, so that the content is not pushed up against the
@@ -153,9 +225,27 @@
 	padding: 15px;
 }
 
+
 .TabbedPanelsContent p {
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 	font-size:13px;
+}
+
+.customerContent p {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:13px;
+}
+
+.customerContent th {
+	text-align:left;
+	font-size:13px;
+	padding:10px 0 10px 20px;
+}
+.customerContent td {
+	text-align:left;
+	font-size:13px;
+	padding:10px 0 10px 20px;
+	background:#fff
 }
 
 /* This selector is an example of how to change the appearnce of the currently
@@ -165,6 +255,10 @@
  */
 .TabbedPanelsContentVisible {
 }
+
+.customerContentVisible {
+}
+
 
 /* Vertical Tabbed Panels
  *
@@ -194,12 +288,32 @@
 	border-bottom: solid 1px #CCC;
 }
 
+.VTabbedPanels .customerTabGroup {
+	float: left;
+	width: 10em;
+	height: 20em;
+	background-color: #EEE;
+	position: relative;
+	border-top: solid 1px #999;
+	border-right: solid 1px #999;
+	border-left: solid 1px #CCC;
+	border-bottom: solid 1px #CCC;
+}
+
 /* This selector disables the float property that is placed on each tab button
  * by the default TabbedPanelsTab selector rule above. It also draws a bottom
  * border for the tab. The tab button will get its left and right border from
  * the TabGroup, and its top border from the TabGroup or tab button above it.
  */
 .VTabbedPanels .TabbedPanelsTab {
+	float: none;
+	margin: 0px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+
+.VTabbedPanels .customerTab {
 	float: none;
 	margin: 0px;
 	border-top: none;
@@ -217,10 +331,22 @@
 	border-bottom: solid 1px #999;
 }
 
+.VTabbedPanels .customerTabSelected {
+	background-color: #EEE;
+	border-bottom: solid 1px #999;
+}
+
 /* This selector floats the content panels for the widget so that they
  * render to the right of the tabbed buttons.
  */
 .VTabbedPanels .TabbedPanelsContentGroup {
+	clear: none;
+	float: left;
+	padding: 0px;
+	width: 30em;
+	height: 20em;
+}
+.VTabbedPanels .customerContentGroup {
 	clear: none;
 	float: left;
 	padding: 0px;

@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  account_reference: MyString
+  company_name: MyString
+  account_number: MyString
+  vat_number: MyString
+  address_line1: MyString
+  address_line2: MyString
+  address_line3: MyString
+  town: MyString
+  country: MyString
+  postcode: MyString
+  website: MyString
+  image: MyString
+  glcode: MyString
+
+two:
+  user_id: 1
+  account_reference: MyString
+  company_name: MyString
+  account_number: MyString
+  vat_number: MyString
+  address_line1: MyString
+  address_line2: MyString
+  address_line3: MyString
+  town: MyString
+  country: MyString
+  postcode: MyString
+  website: MyString
+  image: MyString
+  glcode: MyString

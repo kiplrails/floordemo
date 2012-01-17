@@ -1,0 +1,147 @@
+<!--sign in area defined-->
+<div id="signIn_area">
+	<div class="sign_in_tp">
+    	<div class="sign_left">
+        	<div class="sign_right">
+             	<h1>New Supplier</h1>
+          </div>
+        </div>
+    </div>
+    
+	<div class="sign_left_slc">
+    
+    	<div class="sign_right_slc">
+        <div class="tabs">
+		<%= form_for @supplier, :html => {:multipart => true} do |f| %>
+		  
+       	  <div class="tabber">
+
+     <div class="tabbertab">
+	  <h2>General</h2>
+	
+		
+	    
+         	<% if @supplier.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@supplier.errors.count, "error") %> prohibited this supplier from being saved:</h2>
+
+                <ul>
+                <% @supplier.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+            
+            
+         	<p class="lable">Account Reference</p>
+         	<p class="field"><%= f.text_field :account_reference %></p>
+         
+         	<p class="lable">Company Name</p>
+         	<p class="field"><%= f.text_field :company_name %></p>
+         
+         	<p class="lable">VAT Number</p>
+         	<p class="field"><%= f.text_field :vat_number %></p>
+         
+        	<p class="lable">Address Line 1</p>
+         	<p class="field"><%= f.text_field :address_line1 %></p>
+         
+          <p class="lable">Address Line 2</p>
+          <p class="field"><%= f.text_field :address_line2 %></p>
+          
+          <p class="lable">Address Line 3</p>
+          <p class="field"><%= f.text_field :address_line3 %></p>
+          
+          <p class="lable">Town</p>
+          <p class="field"><%= f.text_field :town %></p>
+          
+          <p class="lable">Country</p>
+          <p class="field"><%= f.text_field :country %></p>
+          
+          <p class="lable">Postcode</p>
+          <p class="field"><%= f.text_field :postcode %></p>
+          
+          <p class="lable">Website</p>
+          <p class="field"><%= f.text_field :website %></p>
+          
+          <p class="lable">Upload Image</p>
+          <p class="field"><%= f.file_field :supplier_image %></p>
+          
+          <p class="lable">GL Code</p>
+          <p class="field"><%= f.text_field :glcode %></p>
+          
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+	  
+     </div>
+
+
+     <div class="tabbertab">
+	  <h2>Contacts</h2>
+	
+		<%= f.fields_for :supcontacts do |builder| %>
+	      <%= render "supcontact_fields", :f => builder %>
+   	<% end %>
+   <p><%= link_to_add_fields "Add Contact", f, :supcontacts %></p>
+			
+     </div>
+     
+     <div class="tabbertab">
+ 	  <h2>Credit Field</h2>
+
+ 		<%= f.fields_for :credits do |builder| %>
+ 	      <%= render "credit_fields", :f => builder %>
+    	<% end %>
+      </div>
+	 
+	
+	 
+	      <div class="tabbertab">
+	  <h2>Communications</h2>
+	  	<%= f.fields_for :supcommunications do |builder| %>
+     	<%= render "supcommunication_fields", :f => builder%>
+     
+ 		<% end %>
+ 		<p><%= link_to_add_fields "Add Communication", f, :supcommunications %></p>
+	      </div>
+	 
+	 <div class="tabbertab">
+	  <h2>Notes</h2>
+	  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. </p>
+	  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodomollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. </p>
+	 </div>
+	 <p align="center" class="submit"><%= f.submit " ", :class =>'submit'%></p>
+
+	
+
+</div><% end %>
+          
+           <div class="clear"></div>       
+         </div>   
+          
+         <div class="clear"></div>       
+      </div>
+    </div>
+    
+    <div class="sign_ftr_slc">
+    	<div class="sign_ftr_left">
+        	<div class="sign_ftr_right">
+                
+          </div>
+        </div>
+    </div>
+</div>
+<!--sign in area defined-->
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  supplier_id: 1
+  credit_limit: 1
+  settlement_due: 1
+  settlement_discount: 1
+  payment_due: 1
+  trading_terms: MyString
+  account_date: 2011-12-22
+
+two:
+  supplier_id: 1
+  credit_limit: 1
+  settlement_due: 1
+  settlement_discount: 1
+  payment_due: 1
+  trading_terms: MyString
+  account_date: 2011-12-22

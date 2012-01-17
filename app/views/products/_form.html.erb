@@ -1,0 +1,129 @@
+<!--sign in area defined-->
+<div id="signIn_area">
+	<div class="sign_in_tp">
+    	<div class="sign_left">
+        	<div class="sign_right">
+             	<h1>New Product</h1>
+          </div>
+        </div>
+    </div>
+    
+	<div class="sign_left_slc">
+    
+    	<div class="sign_right_slc">
+        <div class="tabs">
+		<%= form_for @product, :html => {:multipart => true} do |f| %>
+		  
+       	  <div class="tabber">
+
+     <div class="tabbertab">
+	  <h2>General</h2>
+	
+		
+	    
+         	<% if @product.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@product.errors.count, "error") %> prohibited this supplier from being saved:</h2>
+
+                <ul>
+                <% @product.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+            
+            
+         	<p class="lable">Select Supplier</p>
+         	<p class="field"><%= select("product", "supplier_id", Supplier.find(:all,:order => "company_name asc").collect {|c| [ c.company_name, c.id ] },{ :multiple => true }, {:prompt => 'Select'}) %></p>
+         
+         	<p class="lable">Select Category</p>
+         	<p class="field"><%= select("product", "category_id", Category.find(:all,:order => "category_name asc").collect {|c| [ c.category_name, c.id ] },{ :multiple => true }, {:prompt => 'Select'}) %></p>
+         
+         	<p class="lable">Product Code</p>
+         	<p class="field"><%= f.text_field :product_code %></p>
+         
+        	<p class="lable">Manufacturer Name</p>
+         	<p class="field"><%= f.text_field :manufacturer_name %></p>
+         
+          <p class="lable">Product Name</p>
+          <p class="field"><%= f.text_field :product_name %></p>
+          
+          <p class="lable">Full Description</p>
+          <p class="field"><%= f.text_area :full_description, :class => :mceEditor %></p>
+          
+          <p class="lable">Status</p>
+          <p class="field"><%= f.text_field :status %></p>
+          
+          <p class="lable">Upload Image</p>
+          <p class="field"><%= f.file_field :image %></p>
+          
+          <p class="lable">Set Options</p>
+          <p class="field"><%= f.text_field :set_options %></p>
+          
+        
+          
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+	  
+     </div>
+
+
+     <div class="tabbertab">
+	  <h2>UOM</h2>
+	
+		<%= f.fields_for :uoms do |builder| %>
+	      <%= render "uom_fields", :f => builder %>
+   	<% end %>
+   		
+     </div>
+     
+     <div class="tabbertab">
+ 	  <h2>Varients</h2>
+
+ 		<%= f.fields_for :varients do |builder| %>
+ 	      <%= render "varient_fields", :f => builder %>
+    	<% end %>
+    	
+    <p><%= link_to_add_fields "Add Varient", f, :varients %></p>
+      </div>
+	 
+	
+	 
+	  <div class="tabbertab">
+	  <h2>Discount</h2>
+	  	<%= f.fields_for :discounts do |builder| %>
+     	<%= render "discount_fields", :f => builder%>
+     
+ 		<% end %>
+ 		<p><%= link_to_add_fields "Add Discount", f, :discounts %></p>
+	      </div>
+	 
+	      <div class="tabbertab">
+    	  <h2>Attachment</h2>
+    	  	<%= f.fields_for :attachments do |builder| %>
+         	<%= render "attachment_fields", :f => builder%>
+
+     		<% end %>
+     		<p><%= link_to_add_fields "Add Attachment", f, :attachments %></p>
+    	      </div>	 <p align="center" class="submit"><%= f.submit " ", :class =>'submit'%></p>
+
+	
+
+</div><% end %>
+          
+           <div class="clear"></div>       
+         </div>   
+          
+         <div class="clear"></div>       
+      </div>
+    </div>
+    
+    <div class="sign_ftr_slc">
+    	<div class="sign_ftr_left">
+        	<div class="sign_ftr_right">
+                
+          </div>
+        </div>
+    </div>
+</div>
+<!--sign in area defined-->

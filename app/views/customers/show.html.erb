@@ -3,7 +3,7 @@
 	<div class="sign_in_tp">
     	<div class="sign_left">
         	<div class="sign_right">
-             	<h1>New Customer</h1>
+             	<h1>Customer Information</h1>
           </div>
         </div>
     </div>
@@ -12,138 +12,242 @@
     
     	<div class="sign_right_slc">
         <div class="tabs">
-       	  <div id="TabbedPanels1" class="TabbedPanels">
-        	  <ul class="TabbedPanelsTabGroup">
-        	    <li class="TabbedPanelsTab" tabindex="0">General</li>
-        	    <li class="TabbedPanelsTab" tabindex="1">Contacts</li>
-                 <li class="TabbedPanelsTab" tabindex="2">Credit Control </li>
-                  <li class="TabbedPanelsTab" tabindex="3">Orders</li>
-                  <li class="TabbedPanelsTab" tabindex="4">Communications </li>
-                  <li class="TabbedPanelsTab" tabindex="5">Notes    </li>
+       	  <div id="TabbedPanels1" class="customer">
+        	  <ul class="customerTabGroup">
+        	    <li class="customerTab" tabindex="0" style="margin:0 0 0 20px">General</li>
+        	    <li class="customerTab" tabindex="0">Contacts</li>
+                 <li class="customerTab" tabindex="0">Credit Control </li>
+                  <li class="customerTab" tabindex="0">Orders</li>
+                  <li class="customerTab" tabindex="0">Communications </li>
+                  <li class="customerTab" tabindex="0">Notes    </li>
       	    </ul>
-        	  <div class="TabbedPanelsContentGroup">
-        	    <!-- Genral Tab content  -->
-        	    <div class="signUp_area">
-        	    <div class="TabbedPanelsContent">
-        	        
-                
-                    <p class="lable">Company Name</p>
-                    <p class="field"><%= @customer.company_name %></p>
-                    
-                    <p class="lable">VAT Number</p>
-                    <p class="field"><%= @customer.vat_number %></p>
-                    
-                    <p class="lable">VAT Rate</p>
-                    <p class="field"><%= @customer.vat_rate %></p>
-                    
-                    <p class="lable">GL Code</p>
-                    <p class="field"><%= @customer.gl_code %></p>
-                    
-                    <p class="lable">Account Number(Internal)</p>
-                    <p class="field"><%= @customer.acc_noi %></p>
-                    
-                    
-                    <p class="lable">Account Number(External)</p>
-                    <p class="field"><%= @customer.acc_noe %></p></br>
-                    
-        	    </div>
-        	    </div>
-        	    <!-- Genral Tab Content Ends  -->
-        	    <!-- Contact Tab Content -->
-        	    <div class="TabbedPanelsContent">
-        	   <% for contact in @customer.contacts %>
-        	   
-        	        <p class="lable">Contact Name</p>
-                  <p class="field"><%=h contact.contact_name %></p></br>
-                 
-                  <p class="lable">Contact Position</p>
-                  <p class="field"><%=h contact.contact_position %></p></br>
-                  
-                  <p class="lable">Contact Number</p>
-                  <p class="field"><%=h contact.contact_number %></p></br>
-                  
-                  <p class="lable">Mobile Number</p>
-                  <p class="field"><%=h contact.contact_mobile_number %></p></br>
-                  
-                  <p class="lable">Email Address</p>
-                  <p class="field"><%=h contact.contact_email %></p></br>
-              <% end %>
-        	    </div>
-        	       
-        	    <!-- Contact Tab Ends Here-->
-                
-              <!-- Credit Tab Starts Here-->
-                <div class="TabbedPanelsContent">
-                  
-                  <p class="lable">Credit Limit</p>
-                  <p class="field"><%= @customer.credit_limit %></p></br>
-                  
-                  <p class="lable">Settelment Due</p>
-                  <p class="field"><%= @customer.settelment_due %></p></br>
-                  
-                  <p class="lable">Settelment Discount</p>
-                  <p class="field"><%= @customer.settelment_discount %></p></br>
-                  
-                  <p class="lable">Trading Terms</p>
-                  <p class="field"><%= @customer.trading_terms %></p></br>
-                  
-                  <p class="lable">Credit Position</p>
-                  <p class="field"><%= @customer.credit_position %></p></br>
-                  
-                  <p class="lable">Account On Hold</p>
-                  <p class="field"><%= @customer.account_on_hold %></p></br>
+        	  <div class="customerContentGroup">
+        	    <div class="customerContent">
+                	<table width="100%" border="0" cellspacing="2" cellpadding="2">
+                      <tr>
+                        <td valign="top" width="50%">
+                        	<div style="background:#E6E6E6; padding:1px">
+                            	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                  <tr>
+                                    <th>Company Name</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%= @customer.company_name %></td>
+                                  </tr>
+                                  <tr>
+                                    <th>VAT Number</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%= @customer.vat_number %></td>
+                                  </tr>
+                                  <tr>
+                                    <th>VAT Rate</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%= @customer.vat_rate %></td>
+                                  </tr>
+                                </table>
+
+                            </div>
+                        </td>
+                        <td valign="top" width="50%"><div style="background:#E6E6E6; padding:1px">
+                            	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                  <tr>
+                                    <th>GL Code</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%= @customer.gl_code %></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Account Number (Internal)</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%= @customer.acc_noi %></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Account Number (External)</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%= @customer.acc_noe %></td>
+                                  </tr>
+                                </table>
+
+                            </div></td>
+                      </tr>
+                    </table>
+
                 </div>
-               
-              <!-- Credit Tab Ends Here-->
-                
-                <div class="TabbedPanelsContent"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+        	    <div class="customerContent">
+        	    <% for contact in @customer.contacts %>
+                	<table width="100%" border="0" cellspacing="2" cellpadding="2">
+                      <tr>
+                        <td valign="top" width="50%">
+                        	<div style="background:#E6E6E6; padding:1px">
+                        	
+                            	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                  <tr>
+                                    <th>Contact Name</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%=h contact.contact_name %></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Contact Position</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%=h contact.contact_position %></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Contact Number</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%=h contact.contact_number %></td>
+                                  </tr>
+                                </table>
 
-In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. 
+                            </div>
+                        </td>
+                        <td valign="top" width="50%"><div style="background:#E6E6E6; padding:1px">
+                            	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                  <tr>
+                                    <th>Mobile Number</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%=h contact.contact_mobile_number %></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Email Address</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%=h contact.contact_email %></td>
+                                  </tr>
+                                  
+                                </table>
+                                
+                            </div></td>
+                      </tr>
+                    </table>
+                    
+                    <% end %>
+                </div>
+                <div class="customerContent">
+                  <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                                <tr>
+                                  <td valign="top" width="50%">
+                                  	<div style="background:#E6E6E6; padding:1px">
+                                      	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                            <tr>
+                                              <th>Credit Limit</th>
+                                            </tr>
+                                            <tr>
+                                              <td><%= @customer.credit_limit %></td>
+                                            </tr>
+                                            <tr>
+                                              <th>Settelment Due</th>
+                                            </tr>
+                                            <tr>
+                                              <td><%= @customer.settelment_due %></td>
+                                            </tr>
+                                            <tr>
+                                              <th>Settelment Discount</th>
+                                            </tr>
+                                            <tr>
+                                              <td><%= @customer.settelment_discount %></td>
+                                            </tr>
+                                          </table>
 
-Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p></div>
-              
-              <!-- Communications Tab Starts Here-->
-                <div class="TabbedPanelsContent">
+                                      </div>
+                                  </td>
+                                  <td valign="top" width="50%"><div style="background:#E6E6E6; padding:1px">
+                                      	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                            <tr>
+                                              <th>Trading Terms</th>
+                                            </tr>
+                                            <tr>
+                                              <td><%= @customer.trading_terms %></td>
+                                            </tr>
+                                            <tr>
+                                              <th>Credit Position</th>
+                                            </tr>
+                                            <tr>
+                                              <td><%= @customer.credit_position %></td>
+                                            </tr>
+                                            <tr>
+                                              <th>Account On Hold</th>
+                                            </tr>
+                                            <tr>
+                                              <td><%= @customer.account_on_hold %></td>
+                                            </tr>
+                                          </table>
+
+                                      </div></td>
+                                </tr>
+                              </table>
+                </div>
+                <div class="customerContent">
+                  Orders Content
+                </div>
+                <div class="customerContent">
                 <% for communication in @customer.communications %>
-                  <p class="lable">Communication Date</p>
-                  <p class="field"><%=h communication.comm_date%></p></br>
-                  
-                  <p class="lable">Contact Type </p>
-                  <p class="field"><%=h communication.comm_type %></p></br>
-                  
-                  <p class="lable">Communication Subject </p>
-                  <p class="field"><%=h communication.comm_subject %></p></br>
-                  
-                  <p class="lable">Communication Notes </p>
-                  <p class="field"><%=h communication.comm_notes %></p></br>
+                <table width="100%" border="0" cellspacing="2" cellpadding="2">
+
+                            <tr>
+
+                              <td valign="top" width="50%">
+                              	<div style="background:#E6E6E6; padding:1px">
+                              		
+                                  	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                        <tr>
+                                          <th>Communication Date</th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h communication.comm_date%></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Contact Type </th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h communication.comm_type %></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Communication Subject </th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h communication.comm_subject %></td>
+                                        </tr>
+                                      </table>
+
+                                  </div>
+                              </td>
+                              <td valign="top" width="50%"><div style="background:#E6E6E6; padding:1px">
+                                  	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                        <tr>
+                                          <th>Communication Notes </th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h communication.comm_notes %></td>
+                                        </tr>
+
+
+                                      </table>
+        							                
+                                  </div>
+
+                                </td>
+
+                            </tr>
+
+                          </table>
+                        <% end %>
                 </div>
-              <% end  %>
-              <!-- Communications Tab Ends Here-->  
-                <div class="TabbedPanelsContent"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-
-In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. 
-
-Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p>
-<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-
-In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. 
-
-Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p>
-<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-
-In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. 
-
-Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p>
-</div>
+                <div class="customerContent">
+                  Notes Content
+                </div>
                 
       	    </div>
       	  </div>
-           
-           <div class="clear">
-            
-           </div>   
-          <p> <%= link_to '', edit_customer_path(@customer), :class => 'edit' %>&nbsp;  <%= link_to '', customers_path, :class => 'back' %>&nbsp;</p>
           
+           <div class="clear"></div>       
          </div>   
           
          <div class="clear"></div>       
@@ -153,15 +257,15 @@ Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p>
     <div class="sign_ftr_slc">
     	<div class="sign_ftr_left">
         	<div class="sign_ftr_right">
-            
-            	
-              
                 
             </div>
         </div>
     </div>
 </div>
 <!--sign in area defined-->
+
+
+</div>
 <script type="text/javascript">
 <!--
 var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");

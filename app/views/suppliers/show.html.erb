@@ -1,0 +1,344 @@
+<!--sign in area defined-->
+<div id="signIn_area">
+	<div class="sign_in_tp">
+    	<div class="sign_left">
+        	<div class="sign_right">
+             	<h1>Supplier Information</h1>
+          </div>
+        </div>
+    </div>
+    
+	<div class="sign_left_slc">
+    
+    	<div class="sign_right_slc">
+        <div class="tabs">
+       	  <div id="TabbedPanels1" class="customer">
+        	  <ul class="customerTabGroup">
+        	    <li class="customerTab" tabindex="0" style="margin:0 0 0 20px">General</li>
+        	    <li class="customerTab" tabindex="0">Contacts</li>
+        	    <li class="customerTab" tabindex="0">Credit</li>
+              <li class="customerTab" tabindex="0">Communications </li>
+              <li class="customerTab" tabindex="0">Notes</li>
+      	    </ul>
+        	  <div class="customerContentGroup">
+        	    <div class="customerContent">
+                	<table width="100%" border="0" cellspacing="2" cellpadding="2">
+                      <tr>
+                        <td valign="top" width="50%">
+                        	<div style="background:#E6E6E6; padding:1px">
+                            	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                  <tr>
+                                    <th>Account Reference</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%= @supplier.account_reference %></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Company Name</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%= @supplier.company_name %></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Account Number</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%= @supplier.account_number %></td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <th>Vat Number</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%= @supplier.vat_number %></td>
+                                  </tr>
+                                  
+                                  
+                                </table>
+
+                            </div>
+                        </td>
+                        <td valign="top" width="50%"><div style="background:#E6E6E6; padding:1px">
+                            	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                   <tr>
+                                      <th>Address Line 1</th>
+                                    </tr>
+                                    <tr>
+                                      <td><%= @supplier.address_line1 %></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th>Address Line 2</th>
+                                    </tr>
+                                    <tr>
+                                        <td><%= @supplier.address_line2 %></td>
+                                    </tr>
+                                      
+                                    <tr>
+                                        <th>Address Line 3</th>
+                                    </tr>
+                                    <tr>
+                                        <td><%= @supplier.address_line3 %></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th>Town</th>
+                                    </tr>
+                                    <tr>
+                                        <td><%= @supplier.town %></td>
+                                    </tr>
+                                </table>
+
+                            </div></td>
+                            
+                      </tr>
+                      <tr>
+                        <td valign="top" width="50%"><div style="background:#E6E6E6; padding:1px">
+                            	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                   <tr>
+                                       <th>Country</th>
+                                   </tr>
+                                   <tr>
+                                       <td><%= @supplier.country %></td>
+                                   </tr>
+
+                                   <tr>
+                                       <th>Postcode</th>
+                                   </tr>
+                                   <tr>
+                                       <td><%= @supplier.postcode %></td>
+                                   </tr>
+
+                                   <tr>
+                                       <th>Website</th>
+                                   </tr>
+                                   <tr>
+                                       <td><%= @supplier.website %></td>
+                                   </tr>
+
+                                   <tr>
+                                       <th>GL Code</th>
+                                   </tr>
+                                   <tr>
+                                       <td><%= @supplier.glcode %></td>
+                                   </tr>
+                                   <tr>
+                                        <th>Image</th>
+                                    </tr>
+                                    <tr>
+                                        <td><%= image_tag @supplier.supplier_image_url(:thumb) if @supplier.supplier_image? %></td>
+                                    </tr>
+                                   
+                                </table>
+
+                            </div></td>
+                      </tr>
+                    </table>
+
+                </div>
+        	    <div class="customerContent">
+        	    <% for supcontact in @supplier.supcontacts %>
+                	<table width="100%" border="0" cellspacing="2" cellpadding="2">
+                      <tr>
+                        <td valign="top" width="50%">
+                        	<div style="background:#E6E6E6; padding:1px">
+                        	
+                            	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                  <tr>
+                                    <th>Contact Name</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%=h supcontact.contact_name %></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Contact Position</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%=h supcontact.contact_position %></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Contact Number</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%=h supcontact.contact_number %></td>
+                                  </tr>
+                                </table>
+
+                            </div>
+                        </td>
+                        <td valign="top" width="50%"><div style="background:#E6E6E6; padding:1px">
+                            	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                  <tr>
+                                    <th>Mobile Number</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%=h supcontact.contact_mobile %></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Email Address</th>
+                                  </tr>
+                                  <tr>
+                                    <td><%=h supcontact.contact_mail %></td>
+                                  </tr>
+                                  
+                                </table>
+                                
+                            </div></td>
+                      </tr>
+                    </table>
+                    
+                    <% end %>
+                </div>
+                
+                   <div class="customerContent">
+              	    <% for credits in @supplier.credits %>
+                      	<table width="100%" border="0" cellspacing="2" cellpadding="2">
+                            <tr>
+                              <td valign="top" width="50%">
+                              	<div style="background:#E6E6E6; padding:1px">
+
+                                  	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                        <tr>
+                                          <th>Credit Limit</th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h credits.credit_limit %></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Settlement Due</th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h credits.settlement_due %></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Settlement Discount</th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h credits.settlement_discount %></td>
+                                        </tr>
+                                      </table>
+
+                                  </div>
+                              </td>
+                              <td valign="top" width="50%"><div style="background:#E6E6E6; padding:1px">
+                                  	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                        <tr>
+                                          <th>Payment Due</th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h credits.payment_due %></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Trading Terms</th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h credits.trading_terms %></td>
+                                        </tr>
+                                        
+                                        <tr>
+                                          <th>Trading Date</th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h credits.account_date %></td>
+                                        </tr>
+
+                                      </table>
+
+                                  </div></td>
+                            </tr>
+                          </table>
+
+                          <% end %>
+                      </div>
+                
+                <div class="customerContent">
+                <% for supcommunication in @supplier.supcommunications %>
+                <table width="100%" border="0" cellspacing="2" cellpadding="2">
+
+                            <tr>
+
+                              <td valign="top" width="50%">
+                              	<div style="background:#E6E6E6; padding:1px">
+                              		
+                                  	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                        <tr>
+                                          <th>Communication Date</th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h supcommunication.comm_date%></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Contact Type </th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h supcommunication.comm_type %></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Communication Subject </th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h supcommunication.comm_subject %></td>
+                                        </tr>
+                                      </table>
+
+                                  </div>
+                              </td>
+                              <td valign="top" width="50%"><div style="background:#E6E6E6; padding:1px">
+                                  	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                        <tr>
+                                          <th>Communication Notes </th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h supcommunication.notes %></td>
+                                        </tr>
+                                        
+                                        <tr>
+                                          <th>Communication Outcome </th>
+                                        </tr>
+                                        <tr>
+                                          <td><%=h supcommunication.outcome %></td>
+                                        </tr>
+
+
+                                      </table>
+        							                
+                                  </div>
+
+                                </td>
+
+                            </tr>
+
+                          </table>
+                        <% end %>
+                </div>
+                <div class="customerContent">
+                  Notes Content
+                </div>
+                
+      	    </div>
+      	  </div>
+          
+           <div class="clear"></div>       
+         </div>   
+          
+         <div class="clear"></div>       
+      </div>
+    </div>
+    
+    <div class="sign_ftr_slc">
+    	<div class="sign_ftr_left">
+        	<div class="sign_ftr_right">
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!--sign in area defined-->
+
+
+</div>
+<script type="text/javascript">
+<!--
+var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
+//-->
+</script>

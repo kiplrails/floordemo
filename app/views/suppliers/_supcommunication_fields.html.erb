@@ -1,0 +1,21 @@
+<div class="fields">
+    <p class="lable">Communication Date</p>
+     <p class="field"><%= f.date_select("comm_date")%></p></br>
+
+     <p class="lable">Communication Type</p>
+     <p class="field"><%= f.text_field :comm_type %></p></br>
+     
+     <p class="lable">Contact </p>
+     <p class="field"><%= f.text_field :contact %></p></br>
+
+      <p class="lable">Communication Subject </p>
+      <p class="field"><%= f.text_field :comm_subject %></p></br>
+        
+      <p class="lable"> Outcome </p>
+      <p class="field"><%= f.text_field :outcome %></p></br>
+          
+      <p class="lable"> Notes </p>
+      <p class="field"><%= f.text_field :notes %></p></br>
+     
+     <p><%= link_to_remove_fields "remove", f %></p>
+   </div>
