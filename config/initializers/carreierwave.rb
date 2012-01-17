@@ -8,7 +8,7 @@ CarrierWave.configure do |config|
       :provider               => 'AWS',       # required
       :aws_access_key_id      => 'AKIAIWWQF5REKTC4ZYGQ',       # required
       :aws_secret_access_key  => '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',       # required
-      :region                 => 'eu-west-1'  # optional, defaults to 'us-east-1'
+   #   :region                 => 'eu-west-1'  # optional, defaults to 'us-east-1'
     }
     config.fog_directory  = 'stbgroup'                     # required
    # config.fog_host       = 'https://assets.example.com'            # optional, defaults to nil
