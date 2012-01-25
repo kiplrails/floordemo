@@ -13,7 +13,8 @@ class Product < ActiveRecord::Base
         
   has_many :attachments, :as => :attachable, :dependent => :destroy
         accepts_nested_attributes_for :attachments
-        
-        mount_uploader :image, ImageUploader
+       
+  # ImageUploader is a carrierwave generated file to upload the Image attachemnt.so we need to mention below which uploader should be used to upload the Image 
+   mount_uploader :image, ImageUploader
         
 end

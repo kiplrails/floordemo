@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
+ # The before_filter is used to check the entered login credentials are authenticated or not
  before_filter :authenticate_user!
   
+ # The following line is important mainly because 'cancan' gem functionality won't perform if it doesn't find the below line
  load_and_authorize_resource
-  # GET /users
-  # GET /users.xml
+  
+  
   def index
     @a = current_user.id
     @b = User.where(:s_id => @a)
@@ -15,15 +17,12 @@ class UsersController < ApplicationController
     end
   end
   
+  # dashboard method is called to print all users on dashboard page.
   def dashboard
      @users = User.all
   end
   
-  
-  
-  
-  # GET /users/1
-  # GET /users/1.xml
+
   def show
     @user = User.find(params[:id])
 
@@ -33,8 +32,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/new
-  # GET /users/new.xml
+  
   def new
     @user = User.new
     @current_method = "new"
@@ -45,14 +43,13 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1/edit
+  
   def edit
     @user = User.find(params[:id])
     
   end
 
-  # POST /users
-  # POST /users.xml
+  
   def create
     @user = User.new(params[:user])
 
@@ -67,8 +64,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /users/1
-  # PUT /users/1.xml
+  
   def update
     @user = User.find(params[:id])
    
@@ -83,8 +79,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.xml
+  
   def destroy
     @user = User.find(params[:id])
     @user.destroy

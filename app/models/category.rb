@@ -1,5 +1,7 @@
 class Category < ActiveRecord::Base
   belongs_to :company
+  
+  # has_ancestry line make sures that entered sub category has parent category or not. this is the ancestry gem functionality
   has_ancestry
   
   has_many :sub_categories, :dependent => :destroy

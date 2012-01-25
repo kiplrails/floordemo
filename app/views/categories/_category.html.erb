@@ -1,10 +1,18 @@
-    <tr>
-    <td class="border-bottom"><%= category.category_name %></td>
-    
-    <% if params[:parent_id].nil? %>
-      <td class="border-bottom"><%= category.category_type %></td>
-    <td class="border-bottom-right"><%= link_to 'View', category %> | <%= link_to 'Edit', edit_category_path(category) %> | <%= link_to "Add Sub Category", new_category_path(:parent_id => category)%> | <%= link_to 'Destroy', category , :confirm => 'Are you sure?', :method => :delete %></td>
-   <% end %>
-    </tr>
-    
-  
+  <tr> 
+        <td <% if category.ancestry.nil? %> <% else %> style ='padding-left: 38px;' <% end %>>
+           <span>
+            <img src="/images/arrow.png" alt=""/>
+           </a>
+         </span> &nbsp;  &nbsp;
+         
+           <strong><%= category.category_name %></strong>
+
+           </td>
+             <td><%= category.category_type %></td>
+             
+             <td width="150"><img src="/images/plus_1.png" alt="" /> &nbsp; <%= link_to "Sub Category", new_category_path(:parent_id => category) %> | <%= link_to "Edit", edit_category_path(category) %> &nbsp; | &nbsp; <%= link_to 'Destroy', category , :confirm => 'Are you sure?', :method => :delete %></td>
+
+     </tr>
+
+
+ 

@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
-  uses_tiny_mce(:options => AppConfig.default_mce_options, :only => [:new, :edit])
-  layout'dashboard'
-  #before_filter :authenticate_user!, :except => []
   
-  # GET /products
-  # GET /products.xml
+  # For using tiny mce editor put the below line on every controller where tiny mce needed
+  uses_tiny_mce(:options => AppConfig.default_mce_options, :only => [:new, :edit])
+  
+  layout'dashboard'
+  # before_filter :authenticate_user!, :except => []
+ 
   def index
     @products = Product.all
 
@@ -14,8 +15,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  # GET /products/1
-  # GET /products/1.xml
+  
   def show
     @product = Product.find(params[:id])
 
@@ -25,8 +25,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  # GET /products/new
-  # GET /products/new.xml
+  
   def new
     @product = Product.new
     @suppliers = Supplier.find(:all)
@@ -49,13 +48,12 @@ class ProductsController < ApplicationController
     end
   end
 
-  # GET /products/1/edit
+  
   def edit
     @product = Product.find(params[:id])
   end
 
-  # POST /products
-  # POST /products.xml
+  
   def create
     @product = Product.new(params[:product])
 
@@ -70,8 +68,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  # PUT /products/1
-  # PUT /products/1.xml
+ 
   def update
     @product = Product.find(params[:id])
 
@@ -86,8 +83,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  # DELETE /products/1
-  # DELETE /products/1.xml
+  
   def destroy
     @product = Product.find(params[:id])
     @product.destroy

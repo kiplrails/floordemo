@@ -1,9 +1,8 @@
 class CustomersController < ApplicationController
+  
   layout 'dashboard'
   
-  
-  # GET /customers
-  # GET /customers.xml
+ 
   def index
     @customers = Customer.all
     
@@ -13,8 +12,7 @@ class CustomersController < ApplicationController
     end
   end
 
-  # GET /customers/1
-  # GET /customers/1.xml
+  
   def show
     @customer = Customer.find(params[:id])
     
@@ -24,8 +22,7 @@ class CustomersController < ApplicationController
     end
   end
 
-  # GET /customers/new
-  # GET /customers/new.xml
+  
   def new
     @customer = Customer.new
     1.times do
@@ -41,13 +38,12 @@ class CustomersController < ApplicationController
     end
   end
 
-  # GET /customers/1/edit
+  
   def edit
     @customer = Customer.find(params[:id])
   end
 
-  # POST /customers
-  # POST /customers.xml
+  
   def create
     @customer = Customer.new(params[:customer])
 
@@ -63,10 +59,6 @@ class CustomersController < ApplicationController
   end
   
   
-  
-
-  # PUT /customers/1
-  # PUT /customers/1.xml
   def update
     @customer = Customer.find(params[:id])
 
@@ -81,8 +73,7 @@ class CustomersController < ApplicationController
     end
   end
 
-  # DELETE /customers/1
-  # DELETE /customers/1.xml
+  
   def destroy
     @customer = Customer.find(params[:id])
     @customer.destroy

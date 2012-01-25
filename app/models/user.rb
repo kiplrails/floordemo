@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
     # Setup accessible (or protected) attributes for your model
     attr_accessible :email, :username, :password, :password_confirmation, :remember_me, :role_ids, :s_id, :company_id, :first_name, :surname, :job_title, :address_line1, :address_line2, :address_line3, :city, :postcode, :fix_line, :mobile_number, :county
 
+    # This method is used for cancan gem. It will check the user role at the time of user authentication.  
     def role?(role)
       return !!self.roles.find_by_name(role.to_s)
     end

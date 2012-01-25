@@ -626,3 +626,156 @@ p.copyright {
 	margin-left:10px;
 	border: medium none;
 }
+
+#categoresArea {
+	padding:10px;
+}
+
+#categoresArea form {
+	margin:0;
+	padding:0;
+}
+
+#categoresArea form p {
+	margin:0;
+	padding:8px 0 10px 0;
+}
+
+#categoresArea table {
+	border-collapse:collapse;
+	border: solid 1px #ccc;
+}
+
+#categoresArea table th {
+	background:url(/images/th_nd.png) repeat-x;
+	font-size:13px;
+	padding:10px 8px 10px 8px;
+	text-align:left
+}
+
+#categoresArea table td {
+	font-size:12px;
+	padding:8px 8px 8px 8px;
+	text-align:left;
+	border-bottom: solid 1px #ccc;
+}
+
+#categoresArea table a.btn1 {
+	padding:3px 5px 3px 5px;
+	background:#333333;
+	color:#FFFFFF;
+	display:inline-block;
+	font-size:11px;
+	text-decoration:none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+#categoresArea table a.btn1:hover {
+	background:#CCCCCC;
+	color:#000000
+}
+
+#categoresArea table a {
+	color:#000000;
+	text-decoration:underline
+}
+
+#categoresArea table a:hover {	
+	color:#666666
+}
+#categoresArea input[type="text"] {
+	border: solid 1px #ccc;
+	font-size:11px;
+	padding:3px;
+	margin:0
+}
+
+
+.category_btnArea {
+	padding:10px 0 0 0;
+	position:relative
+}
+
+.category_btnArea .btnRightArea {
+	position:absolute;
+	top:25px;
+	right:10px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background:url(/images/th_nd.png) repeat-x;
+	border: solid 1px #CFCFCF;
+	font-size:11px;
+	padding:5px;
+}
+
+.category_btnArea .btnRightArea ul {
+	margin:0;
+	padding:0;
+	list-style:none
+}
+
+.category_btnArea .btnRightArea ul li {
+	display:inline;
+	vertical-align:top;
+	border-right: solid 1px #ccc;
+	padding:0 10px 0 10px;
+	line-height:20px;
+}
+.category_btnArea .btnRightArea ul li img {
+	vertical-align:top
+	
+}
+
+.category_btnArea .btnRightArea ul li a {
+	color:#000000;
+	text-decoration:none
+}
+
+
+
+
+a.category_btn {
+	padding:5px 10px 5px 10px;
+	background:#333333;
+	color:#000;
+	display:inline-block;
+	font-size:11px;
+	text-decoration:none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background:url(/images/th_nd.png) repeat-x;
+	letter-spacing:normal;
+	border: solid 1px #CFCFCF;
+	position:absolute;
+	top:12px;
+	right:20px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight:bold
+}
+a.category_btn:hover {
+	color:#666666
+}
+
+
+a.save_btn {
+	padding:8px 10px 8px 10px;
+	background:#333333;
+	color:#000;
+	display:inline-block;
+	font-size:11px;
+	text-decoration:none;
+	-webkit-border-radius:8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background:url(/images/th_nd.png) repeat-x;
+	letter-spacing:normal;
+	border: solid 1px #CFCFCF;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight:bold
+}
+a.save_btn:hover {
+	color:#666666
+}

@@ -10,5 +10,6 @@ class Supplier < ActiveRecord::Base
        has_many :credits, :dependent => :destroy
           accepts_nested_attributes_for :credits, :reject_if => lambda { |a| a[:credit_limit].blank? }, :allow_destroy => true
           
-           mount_uploader :supplier_image, SupplierImageUploader
+ # SupplierImageUploader is a carrierwave generated file to upload the supplier images attachemnt.so we need to mention below which uploader should be used to upload the file
+     mount_uploader :supplier_image, SupplierImageUploader
 end

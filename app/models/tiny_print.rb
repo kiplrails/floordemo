@@ -1,5 +1,6 @@
 class TinyPrint < ActiveRecord::Base
   
+  # This will provide the functionality to upload the image from the tiny mce editor. It will convert the image into required size 
   has_attached_file :image,
     :convert_options => { :quality =>  4 },
     :styles => { :small_thumb => [ "50x50", :jpg ],

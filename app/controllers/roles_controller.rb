@@ -1,7 +1,8 @@
 class RolesController < ApplicationController
+  # The following line is important mainly because 'cancan' gem functionality won't perform if it doesn't find the below line
   load_and_authorize_resource
-  # GET /roles
-  # GET /roles.xml
+  
+  
   def index
     @roles = Role.all
 
@@ -11,8 +12,7 @@ class RolesController < ApplicationController
     end
   end
 
-  # GET /roles/1
-  # GET /roles/1.xml
+  
   def show
     @role = Role.find(params[:id])
 
@@ -22,8 +22,7 @@ class RolesController < ApplicationController
     end
   end
 
-  # GET /roles/new
-  # GET /roles/new.xml
+  
   def new
     @role = Role.new
 
@@ -33,13 +32,12 @@ class RolesController < ApplicationController
     end
   end
 
-  # GET /roles/1/edit
+  
   def edit
     @role = Role.find(params[:id])
   end
 
-  # POST /roles
-  # POST /roles.xml
+  
   def create
     @role = Role.new(params[:role])
 
@@ -54,8 +52,7 @@ class RolesController < ApplicationController
     end
   end
 
-  # PUT /roles/1
-  # PUT /roles/1.xml
+  
   def update
     @role = Role.find(params[:id])
 
@@ -70,8 +67,7 @@ class RolesController < ApplicationController
     end
   end
 
-  # DELETE /roles/1
-  # DELETE /roles/1.xml
+  
   def destroy
     @role = Role.find(params[:id])
     @role.destroy
