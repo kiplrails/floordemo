@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117065532) do
+ActiveRecord::Schema.define(:version => 20120206042032) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "product_id"
@@ -31,6 +31,11 @@ ActiveRecord::Schema.define(:version => 20120117065532) do
   end
 
   add_index "categories", ["ancestry"], :name => "index_categories_on_ancestry"
+
+  create_table "categories_products", :id => false, :force => true do |t|
+    t.integer "category_id"
+    t.integer "product_id"
+  end
 
   create_table "communications", :force => true do |t|
     t.integer  "customer_id"

@@ -37,7 +37,7 @@
                                     <th>Category</th>
                                   </tr>
                                   <tr>
-                                    <td><%= @product.category_id %></td>
+                                    <td><%= @product.categories.collect { |cat| cat.category_name} %></td>
                                   </tr>
                                   <tr>
                                     <th>Product Code</th>
@@ -47,7 +47,7 @@
                                   </tr>
                                   
                                   <tr>
-                                    <th>MAnufacturers Name</th>
+                                    <th>Manufacturers Name</th>
                                   </tr>
                                   <tr>
                                     <td><%= @product.manufacturer_name %></td>

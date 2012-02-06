@@ -23,8 +23,7 @@
                     <th width="50">Category Type</th>
                     <th colspan="4">Action</th>
                   </tr>
-                  
-					            <%= nested_categories @categories.arrange(:order => :created_at) %> 
+    					<%= nested_categories @categories.arrange(:order => :created_at) %> 
 					        
                 </table>
           </div>	

@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>FloorSYS | Dashboard </title>
-<%= stylesheet_link_tag (['style.css','mm/ddlevelsmenu-base.css','mm/ddlevelsmenu-topbar.css','mm/ddlevelsmenu-sidebar.css','mm/SpryTabbedPanels.css', 'tab'])%>
-<%= javascript_include_tag 'ddlevelsmenu.js','SpryTabbedPanels.js','prototype.js','application.js','rails.js', 'tabber' %>
+<%= stylesheet_link_tag (['style.css','mm/ddlevelsmenu-base.css','mm/ddlevelsmenu-topbar.css','mm/ddlevelsmenu-sidebar.css','mm/SpryTabbedPanels.css', 'mm/jquery.treeview.css','tab'])%>
+<%= javascript_include_tag 'ddlevelsmenu.js','SpryTabbedPanels.js','prototype.js','application.js','rails.js','jquery.cookie.js','jquery.treeview.js', 'tabber' %>
 <%= javascript_include_tiny_mce_if_used %> 
 <%= tiny_mce if using_tiny_mce? %>
 
@@ -17,90 +17,30 @@
 document.write('<style type="text/css">.tabber{display:none;}<\/style>');
 </script>
 
-<!-- javascript for category index page -->
-
+<!-- javascript for the category -->
 <script type="text/javascript">
-<!--
-	function toggle5(showHideDiv, showHideDiv1, showHideDiv2, showHideDiv3, showHideDiv4, showHideDiv5, switchImgTag) 
-	{ 
-        var ele = document.getElementById(showHideDiv);
-		var ele1 = document.getElementById(showHideDiv1);
-		var ele2 = document.getElementById(showHideDiv2);
-		var ele3 = document.getElementById(showHideDiv3);
-		var ele4 = document.getElementById(showHideDiv4);
-		var ele5 = document.getElementById(showHideDiv5);
-        var imageEle = document.getElementById(switchImgTag);
-
-        if((ele.style.display == "block") && (ele1.style.display == "block") && (ele2.style.display == "block") && (ele3.style.display == "block") && (ele4.style.display == "block") && (ele5.style.display == "block"))
-		{
-                ele.style.display = "none";
-				ele1.style.display = "none";
-				ele2.style.display = "none";
-				ele3.style.display = "none";
-				ele4.style.display = "none";
-				ele5.style.display = "none";
-				imageEle.innerHTML = '<img src="images/plus.png">';
-				document.getElementById("tools1").style.display = "none";
-				document.getElementById("toolsnew1").style.display = "none";
-				
-        }
-        else {
-                ele.style.display = "block";
-				ele1.style.display = "block";
-				ele2.style.display = "block";
-				ele3.style.display = "block";
-				ele4.style.display = "block";
-				ele5.style.display = "block";
-                imageEle.innerHTML = '<img src="images/minuse.png">';
-				document.getElementById("tools1").style.display = "block";
-
-				
-        }
+		$(function() {
+			$("#tree").treeview({
+				collapsed: true,
+				animated: "medium",
+				control:"#sidetreecontrol",
+				prerendered: true,
+				persist: "location"
+			});
+		})
 		
-	}
-	function toggle6(showHideDivnew, showHideDiv1new, showHideDiv2new, showHideDiv3new, showHideDiv4new, showHideDiv5new, switchImgTagnew) 
-		{
-			var elenew = document.getElementById(showHideDivnew);
-			var ele1new = document.getElementById(showHideDiv1new);
-			var ele2new = document.getElementById(showHideDiv2new);
-			var ele3new = document.getElementById(showHideDiv3new);
-			var ele4new = document.getElementById(showHideDiv4new);
-			var ele5new = document.getElementById(showHideDiv5new);
-			var imageElenew = document.getElementById(switchImgTagnew);
+</script>
 
-			if((elenew.style.display == "block") && (ele1new.style.display == "block") && (ele2new.style.display == "block") && (ele3new.style.display == "block") && (ele4new.style.display == "block") && (ele5new.style.display == "block"))
-			{
-                elenew.style.display = "none";
-				ele1new.style.display = "none";
-				ele2new.style.display = "none";
-				ele3new.style.display = "none";
-				ele4new.style.display = "none";
-				ele5new.style.display = "none";
-				imageElenew.innerHTML = '<img src="images/plus.png">';
-				document.getElementById("toolsnew1").style.display = "none";
-			}
-			else 
-			{
-                elenew.style.display = "block";
-				ele1new.style.display = "block";
-				ele2new.style.display = "block";
-				ele3new.style.display = "block";
-				ele4new.style.display = "block";
-				ele5new.style.display = "block";
-                imageElenew.innerHTML = '<img src="images/minuse.png">';
-				document.getElementById("toolsnew1").style.display = "block";
-			}
-		}
-//-->
+
+
+<script type="text/javascript">
+	ddlevelsmenu.setup("navlist", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
 </script>
 
 <script type="text/javascript">
-ddlevelsmenu.setup("navlist", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
+	ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
 </script>
 
-<script type="text/javascript">
-ddlevelsmenu.setup("navlist1", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
-</script>
 </head>
 
 <body>

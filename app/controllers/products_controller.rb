@@ -18,6 +18,9 @@ class ProductsController < ApplicationController
   
   def show
     @product = Product.find(params[:id])
+    
+    #multi-collection for show
+    @product.categories = Category.find(params[:category_ids]) if params[:category_ids]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -56,6 +59,9 @@ class ProductsController < ApplicationController
   
   def create
     @product = Product.new(params[:product])
+    
+    # multiselection functionality
+    @product.categories = Category.find(params[:category_ids]) if params[:category_ids]
 
     respond_to do |format|
       if @product.save
@@ -71,6 +77,9 @@ class ProductsController < ApplicationController
  
   def update
     @product = Product.find(params[:id])
+    
+    # multiselection functionality
+    @product.categories = Category.find(params[:category_ids]) if params[:category_ids]
 
     respond_to do |format|
       if @product.update_attributes(params[:product])

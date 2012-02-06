@@ -18,9 +18,7 @@
 
      <div class="tabbertab">
 	  <h2>General</h2>
-	
-		
-	    
+	  
          	<% if @product.errors.any? %>
               <div id="error_explanation">
                 <h2><%= pluralize(@product.errors.count, "error") %> prohibited this supplier from being saved:</h2>
@@ -38,7 +36,7 @@
          	<p class="field"><%= select("product", "supplier_id", Supplier.find(:all,:order => "company_name asc").collect {|c| [ c.company_name, c.id ] },{ :multiple => true }, {:prompt => 'Select'}) %></p>
          
          	<p class="lable">Select Category</p>
-         	<p class="field"><%= select("product", "category_id", Category.find(:all,:order => "category_name asc").collect {|c| [ c.category_name, c.id ] },{ :multiple => true }, {:prompt => 'Select'}) %></p>
+         	<p class="field"><%= select_tag("category_ids[]", options_for_select(Category.find(:all).collect { |cat| [cat.category_name, cat.id] }, @product.categories.collect { |cat| cat.id}), {:multiple=>true, :size=>6})%></p>
          
          	<p class="lable">Product Code</p>
          	<p class="field"><%= f.text_field :product_code %></p>
